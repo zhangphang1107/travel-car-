@@ -1,0 +1,2081 @@
+<!DOCTYPE html>
+<html lang="zh-MY">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JACK CAR TRAVEL 吉隆坡豪华包车 | 30年摄影师司导跟拍 · 10小时随心定制游 (云顶/怡保/马六甲)</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Google Fonts (支持后台切换黑体/宋体/圆体) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Serif+SC:wght@400;700;900&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+    <!-- 引入 Phosphor Icons 图标库 -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        :root {
+            --site-font: 'Noto Sans SC', sans-serif;
+        }
+        body {
+            font-family: var(--site-font);
+            background-color: #f8fafc;
+            color: #0f172a;
+            overflow-x: hidden;
+        }
+        .game-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .game-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 28px -6px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
+        }
+        .game-card:active {
+            transform: scale(0.98);
+        }
+        .selected-card {
+            border-color: #f59e0b !important;
+            background: linear-gradient(145deg, #fffbeb, #ffffff) !important;
+            box-shadow: 0 12px 25px -4px rgba(245, 158, 11, 0.22) !important;
+        }
+        .selected-car {
+            border-color: #0284c7 !important;
+            background: linear-gradient(145deg, #f0f9ff, #ffffff) !important;
+            box-shadow: 0 10px 22px -4px rgba(2, 132, 199, 0.2) !important;
+        }
+        .timeline-dot::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 22px;
+            background-color: #f59e0b;
+        }
+        .timeline-item:last-child .timeline-dot::after {
+            display: none;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f59e0b;
+        }
+        @keyframes pulse-emerald {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
+            50% { box-shadow: 0 0 0 12px rgba(16, 185, 129, 0); }
+        }
+        .pulse-btn {
+            animation: pulse-emerald 2s infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-amber-400 selection:text-slate-950">
+
+    <!-- 顶部高大上明亮导航栏 -->
+    <header class="sticky top-0 z-40 backdrop-blur-md bg-white/95 border-b border-slate-200/80 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 py-2.5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-b from-sky-50 to-amber-50 border-2 border-amber-400 flex items-center justify-center shadow-md overflow-hidden shrink-0">
+                    <img id="site-logo-nav" src="IMG_1685.jpg" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/initials/svg?seed=JC&backgroundColor=f59e0b&textColor=fff';" alt="Jack Car Travel Logo" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <span id="site-brand-name" class="font-black text-lg sm:text-xl tracking-wider text-slate-900">
+                            <span class="text-orange-600">JACK</span> CAR TRAVEL
+                        </span>
+                        <span id="site-top-badge" class="text-[11px] font-black px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300">
+                            📸 30年摄影师司导包车跟拍
+                        </span>
+                    </div>
+                    <p id="site-nav-sub" class="text-xs text-slate-500 font-medium">KL · MALAYSIA | 012-8331935 | Perodua Alza & Nissan Serena</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <button type="button" onclick="openWeChatModal()" class="hidden sm:flex items-center gap-1.5 bg-green-50 hover:bg-green-100 text-green-700 border border-green-300 text-xs sm:text-sm font-bold px-3.5 py-2 rounded-xl transition">
+                    <i class="ph-fill ph-wechat-logo text-lg text-green-600"></i>
+                    <span>微信咨询</span>
+                </button>
+                <a id="top-whatsapp-link" href="https://wa.me/60128331935?text=%E4%BD%A0%E5%A5%BD%20Jack%20(JACK%20CAR%20TRAVEL)%EF%BC%81%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E5%8C%85%E8%BD%A6%E6%97%85%E6%B8%B8%E5%92%8C%E6%9C%BA%E5%9C%BA%E6%8E%A5%E9%80%81%E6%9C%8D%E5%8A%A1%EF%BC%81" target="_blank" rel="noopener noreferrer" class="pulse-btn flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white text-xs sm:text-sm font-black px-4 py-2.5 rounded-xl shadow-md transition">
+                    <i class="ph-fill ph-whatsapp-logo text-lg"></i>
+                    <span>一按直接 WhatsApp 了解包车</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄横幅 & 30年摄影师司导亮点 + 实景画廊 -->
+    <section class="relative overflow-hidden pt-6 pb-10 md:py-12 border-b border-slate-200 bg-gradient-to-b from-amber-50/70 via-sky-50/40 to-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid lg:grid-cols-12 gap-8 items-center">
+                <!-- 左侧文案 -->
+                <div class="lg:col-span-6 space-y-4">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100 border border-orange-300 text-orange-900 text-xs font-black shadow-sm">
+                        <i class="ph-fill ph-camera text-orange-600 text-base"></i>
+                        <span id="hero-pill-text">全马独有：30年影视/摄影师经验司导，包车免费帮您拍大片！</span>
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-black leading-tight text-slate-900">
+                        <span id="hero-main-title">JACK CAR TRAVEL</span><br>
+                        <span id="hero-sub-title" class="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-amber-500 to-rose-500">
+                            包车旅游 · 专人讲解与旅拍
+                        </span>
+                    </h1>
+                    <p id="hero-desc-text" class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                        我们的司机与众不同！主理人 <strong>Jack</strong> 是一位拥有<strong>30年拍戏与专业摄影经验的资深摄影师</strong>。凡是包车出游，不仅为您提供<strong>Perodua Alza</strong>与<strong>Nissan Serena</strong>舒适专车，还会<strong>全程贴心为您介绍景点故事，并亲自帮您和家人朋友拍照打卡</strong>！包含<strong>云顶（RM500）</strong>、<strong>怡保（RM600）</strong>、<strong>马六甲（RM600）</strong>10小时自由行及<strong>机场接送（RM200起）</strong>！
+                    </p>
+
+                    <!-- 首屏一键直跳 WhatsApp 咨询按钮组 -->
+                    <div class="pt-1 flex flex-col sm:flex-row gap-3">
+                        <a id="hero-whatsapp-link" href="https://wa.me/60128331935?text=%E4%BD%A0%E5%A5%BD%20Jack%20(JACK%20CAR%20TRAVEL)%EF%BC%81%E6%88%91%E6%83%B3%E7%9B%B4%E6%8E%A5%E4%BA%86%E8%A7%A3%E5%8C%85%E8%BD%A6%E9%85%8D%E5%A5%97%EF%BC%88%E4%BA%91%E9%A1%B6%20%2F%20%E6%80%A1%E4%BF%9D%20%2F%20%E9%A9%AC%E5%85%AD%E7%94%B2%20%2F%20%E6%9C%BA%E5%9C%BA%E6%8E%A5%E9%80%81%EF%BC%89%E3%80%82" target="_blank" rel="noopener noreferrer" class="pulse-btn flex-1 bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white font-black text-sm sm:text-base py-3.5 px-5 rounded-2xl shadow-lg flex items-center justify-center gap-2.5 transition transform active:scale-95">
+                            <i class="ph-fill ph-whatsapp-logo text-2xl"></i>
+                            <div class="text-left">
+                                <span class="block leading-tight">不想填表？一按直接 WhatsApp 我</span>
+                                <span id="hero-wa-sub" class="text-[11px] font-normal text-emerald-100 block">马上联系 Jack (012-8331935) 了解包车</span>
+                            </div>
+                        </a>
+                        <a href="#customizer-section" class="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs sm:text-sm py-3.5 px-5 rounded-2xl shadow flex items-center justify-center gap-1.5 transition">
+                            <span>🎮 或者自己勾选景点</span>
+                            <i class="ph-bold ph-arrow-down"></i>
+                        </a>
+                    </div>
+
+                    <!-- 30年摄影师专属名片亮点框 -->
+                    <div class="bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-rose-500/10 border-2 border-amber-400/80 rounded-2xl p-3.5 flex items-center gap-3.5 shadow-sm">
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-500 to-amber-500 text-white flex items-center justify-center shrink-0 shadow">
+                            <i class="ph-fill ph-camera-rotate text-2xl"></i>
+                        </div>
+                        <div class="text-xs sm:text-sm">
+                            <div class="font-black text-slate-900 flex items-center gap-1.5">
+                                <span>🎬 为什么选择 Jack Car Travel？</span>
+                                <span class="bg-orange-600 text-white text-[10px] px-2 py-0.5 rounded-full">包车附送旅拍</span>
+                            </div>
+                            <p class="text-slate-700 text-xs mt-0.5 leading-relaxed">
+                                <strong>30年拍戏/摄影师经验：</strong>懂光线、懂构图、懂最佳打卡机位！出门旅游再也不用求路人拍照，Jack 边带路边讲解，帮您拍出刷爆朋友圈的人生美照！
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 服务亮点标签 -->
+                    <div class="flex flex-wrap gap-2 pt-1">
+                        <span class="text-xs bg-white shadow-sm border border-slate-200 px-3 py-1.5 rounded-xl flex items-center gap-1.5 text-slate-700 font-bold">
+                            <i class="ph-fill ph-camera text-orange-500 text-base"></i> 30年经验摄影师免费帮拍
+                        </span>
+                        <span class="text-xs bg-white shadow-sm border border-slate-200 px-3 py-1.5 rounded-xl flex items-center gap-1.5 text-slate-700 font-medium">
+                            <i class="ph-fill ph-clock-countdown text-amber-500 text-base"></i> 10小时景点自由选
+                        </span>
+                        <span class="text-xs bg-white shadow-sm border border-slate-200 px-3 py-1.5 rounded-xl flex items-center gap-1.5 text-slate-700 font-medium">
+                            <i class="ph-fill ph-airplane-tilt text-sky-600 text-base"></i> KL机场接送 RM200起
+                        </span>
+                        <span class="text-xs bg-white shadow-sm border border-slate-200 px-3 py-1.5 rounded-xl flex items-center gap-1.5 text-slate-700 font-medium">
+                            <i class="ph-fill ph-phone-call text-emerald-600 text-base"></i> <span class="dynamic-phone-display">012-8331935</span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- 右侧：动态生成的所有配套实景画廊卡片 + 品牌卡 -->
+                <div class="lg:col-span-6 space-y-4">
+                    <div id="hero-gallery-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                        <!-- 由 JS 动态渲染所有配套卡片 -->
+                    </div>
+
+                    <!-- JACK CAR TRAVEL 品牌与车型横幅 -->
+                    <div class="bg-white rounded-2xl p-4 border-2 border-amber-300 shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div class="flex items-center gap-3.5">
+                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-b from-sky-50 to-amber-50 border border-amber-300 flex flex-col items-center justify-center shrink-0 shadow-inner overflow-hidden">
+                                <img id="site-logo-banner" src="IMG_1685.jpg" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/initials/svg?seed=JC&backgroundColor=f59e0b&textColor=fff';" alt="Jack Car Travel Logo" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="text-xs font-black uppercase tracking-wider text-orange-600">JACK CAR TRAVEL · KL</span>
+                                    <span class="text-[11px] bg-amber-100 text-amber-800 px-2 py-0.5 rounded font-bold">30年经验摄影师司导</span>
+                                </div>
+                                <h4 class="font-black text-slate-900 text-sm sm:text-base mt-0.5">
+                                    Nissan Serena <span class="text-slate-400 font-normal mx-1">|</span> Perodua Alza
+                                </h4>
+                                <p class="text-xs text-slate-500">包车附送专业级旅拍 + 景点生动讲解 · 预订电话：<strong class="dynamic-phone-display">012-8331935</strong></p>
+                            </div>
+                        </div>
+                        <a href="#customizer-section" class="w-full sm:w-auto text-center bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl shrink-0 transition">
+                            立即选车定制 ➔
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主体：互动游戏化定制区 -->
+    <main id="customizer-section" class="max-w-6xl mx-auto px-4 py-8 w-full flex-1">
+        <!-- 游戏进度条与关卡导航 -->
+        <div class="mb-8">
+            <div class="flex items-center justify-between mb-3">
+                <h2 class="text-lg sm:text-2xl font-black text-slate-900 flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-xl bg-amber-400 text-slate-950 flex items-center justify-center text-base font-black shadow-sm">★</span>
+                    <span>4步互动定制你的专属包车旅程</span>
+                </h2>
+                <span id="progress-text" class="text-xs font-bold text-amber-800 bg-amber-100 px-3.5 py-1.5 rounded-full border border-amber-300">
+                    完成度: 25%
+                </span>
+            </div>
+            <!-- 4步导航按钮 -->
+            <div class="grid grid-cols-4 gap-2 sm:gap-4">
+                <button onclick="goToStep(1)" id="step-tab-1" class="step-tab flex flex-col sm:flex-row items-center justify-center gap-2 p-2.5 sm:p-3.5 rounded-2xl border-2 border-amber-500 bg-amber-50/80 text-slate-900 text-left transition shadow-sm">
+                    <span class="w-6 h-6 rounded-full bg-amber-500 text-white font-black text-xs flex items-center justify-center shrink-0">1</span>
+                    <span class="text-xs sm:text-sm font-black text-center sm:text-left">选择配套/接机</span>
+                </button>
+                <button onclick="goToStep(2)" id="step-tab-2" class="step-tab flex flex-col sm:flex-row items-center justify-center gap-2 p-2.5 sm:p-3.5 rounded-2xl border-2 border-slate-200 bg-white text-slate-500 text-left transition">
+                    <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 font-black text-xs flex items-center justify-center shrink-0">2</span>
+                    <span class="text-xs sm:text-sm font-bold text-center sm:text-left">车型与人数</span>
+                </button>
+                <button onclick="goToStep(3)" id="step-tab-3" class="step-tab flex flex-col sm:flex-row items-center justify-center gap-2 p-2.5 sm:p-3.5 rounded-2xl border-2 border-slate-200 bg-white text-slate-500 text-left transition">
+                    <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 font-black text-xs flex items-center justify-center shrink-0">3</span>
+                    <span class="text-xs sm:text-sm font-bold text-center sm:text-left">自选景点/接送</span>
+                </button>
+                <button onclick="goToStep(4)" id="step-tab-4" class="step-tab flex flex-col sm:flex-row items-center justify-center gap-2 p-2.5 sm:p-3.5 rounded-2xl border-2 border-slate-200 bg-white text-slate-500 text-left transition">
+                    <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 font-black text-xs flex items-center justify-center shrink-0">4</span>
+                    <span class="text-xs sm:text-sm font-bold text-center sm:text-left">微信 / WhatsApp</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8 items-start">
+            <!-- 左侧：互动闯关操作面板 (占 7 列) -->
+            <div class="lg:col-span-7 bg-white border border-slate-200 rounded-3xl p-5 sm:p-7 shadow-xl">
+
+                <!-- 第一关：动态渲染所有包车配套 + 机场接送服务 -->
+                <div id="step-panel-1" class="space-y-5">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                        <div>
+                            <span class="text-xs font-extrabold text-amber-600 uppercase tracking-wider">STAGE 1 · 选择包车路线或机场接送</span>
+                            <h3 class="text-xl sm:text-2xl font-black text-slate-900">请选择您需要的专车服务</h3>
+                        </div>
+                        <span class="text-xs font-bold bg-amber-100 text-amber-800 px-3 py-1 rounded-full">时间自由 · 随心定制</span>
+                    </div>
+
+                    <div id="stage1-packages-list" class="grid gap-4">
+                        <!-- 由 JS 根据最新配套库（含后台新增配套）动态渲染 -->
+                    </div>
+
+                    <div class="pt-2 flex justify-end">
+                        <button onclick="goToStep(2)" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-7 py-3.5 rounded-2xl flex items-center justify-center gap-2 shadow-lg transition">
+                            <span>下一步：选择专车与人数</span>
+                            <i class="ph-bold ph-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 第二关：选择车型 (Perodua Alza / Nissan Serena) + 人数与日期 -->
+                <div id="step-panel-2" class="space-y-5 hidden">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                        <div>
+                            <span class="text-xs font-extrabold text-amber-600 uppercase tracking-wider">STAGE 2 · 专车车型与人数</span>
+                            <h3 class="text-xl sm:text-2xl font-black text-slate-900">选择您心仪的包车座驾与人数</h3>
+                        </div>
+                        <button onclick="goToStep(1)" class="text-xs font-bold text-slate-500 hover:text-slate-900 flex items-center gap-1">
+                            <i class="ph-bold ph-arrow-left"></i> 换配套
+                        </button>
+                    </div>
+
+                    <!-- 双车型选择：Nissan Serena 与 Perodua Alza -->
+                    <div>
+                        <label class="block text-xs font-black text-slate-700 mb-2.5 flex items-center gap-1.5">
+                            <i class="ph-fill ph-steering-wheel text-sky-600 text-base"></i>
+                            请选择您想要的专车车型（两款热门 MPV 供选择）：
+                        </label>
+                        <div class="grid sm:grid-cols-2 gap-3.5">
+                            <!-- 车型 1：Nissan Serena -->
+                            <div onclick="selectCarModel('Nissan Serena (豪华商务舱 MPV)')" id="car-card-serena" class="game-card selected-car cursor-pointer rounded-2xl border-2 border-slate-200 bg-white p-3.5 relative">
+                                <div class="h-32 rounded-xl bg-white border border-slate-100 mb-3 overflow-hidden relative flex items-center justify-center">
+                                    <img id="car-img-serena-step" src="IMG_1743.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1619682817481-e994891cd1f5?auto=format&fit=crop&w=800&q=80';" alt="Nissan Serena" class="w-full h-full object-contain p-1">
+                                    <span class="absolute top-2 right-2 bg-sky-500 text-white text-[10px] font-black px-2 py-0.5 rounded-md shadow">人气头等舱</span>
+                                    <span class="absolute bottom-2 left-2 bg-black/75 text-amber-300 text-[11px] font-bold px-2 py-0.5 rounded">电动滑门 · 独立Captain座椅</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <h4 class="font-black text-slate-900 text-base">Nissan Serena</h4>
+                                        <p class="text-xs text-slate-500">豪华宽敞 MPV · 适合 1-6 人舒适乘坐</p>
+                                    </div>
+                                    <span id="car-badge-serena" class="text-xs font-black px-2.5 py-1 rounded-lg bg-sky-600 text-white">✓ 已选</span>
+                                </div>
+                            </div>
+
+                            <!-- 车型 2：Perodua Alza -->
+                            <div onclick="selectCarModel('Perodua Alza (舒适家用 MPV)')" id="car-card-alza" class="game-card cursor-pointer rounded-2xl border-2 border-slate-200 bg-white p-3.5 relative">
+                                <div class="h-32 rounded-xl bg-white border border-slate-100 mb-3 overflow-hidden relative flex items-center justify-center">
+                                    <img id="car-img-alza-step" src="IMG_1745.AVIF" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=800&q=80';" alt="Perodua Alza" class="w-full h-full object-contain p-1">
+                                    <span class="absolute top-2 right-2 bg-emerald-500 text-white text-[10px] font-black px-2 py-0.5 rounded-md shadow">灵活舒适</span>
+                                    <span class="absolute bottom-2 left-2 bg-black/75 text-white text-[11px] font-bold px-2 py-0.5 rounded">大马畅销舒适 MPV</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <h4 class="font-black text-slate-900 text-base">Perodua Alza</h4>
+                                        <p class="text-xs text-slate-500">灵巧舒适 MPV · 适合小家庭 1-5 人</p>
+                                    </div>
+                                    <span id="car-badge-alza" class="text-xs font-bold px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600">点击选择</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 互动人数选择器 -->
+                    <div class="grid sm:grid-cols-2 gap-4 pt-1">
+                        <div class="bg-slate-50 border border-slate-200 p-4 rounded-2xl flex items-center justify-between">
+                            <div>
+                                <p class="font-black text-slate-900 flex items-center gap-1.5">
+                                    <i class="ph-fill ph-users text-amber-500 text-lg"></i> 大人 (Adults)
+                                </p>
+                                <p class="text-xs text-slate-500">12岁或以上</p>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <button onclick="changePax('adults', -1)" class="w-9 h-9 rounded-xl bg-white border border-slate-300 hover:bg-slate-100 text-slate-900 font-black flex items-center justify-center text-lg shadow-sm active:scale-90 transition">-</button>
+                                <span id="adults-count" class="text-xl font-black text-amber-600 w-6 text-center">4</span>
+                                <button onclick="changePax('adults', 1)" class="w-9 h-9 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black flex items-center justify-center text-lg shadow-sm active:scale-90 transition">+</button>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-50 border border-slate-200 p-4 rounded-2xl flex items-center justify-between">
+                            <div>
+                                <p class="font-black text-slate-900 flex items-center gap-1.5">
+                                    <i class="ph-fill ph-baby text-amber-500 text-lg"></i> 小孩 (Children)
+                                </p>
+                                <p class="text-xs text-slate-500">12岁以下儿童</p>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <button onclick="changePax('children', -1)" class="w-9 h-9 rounded-xl bg-white border border-slate-300 hover:bg-slate-100 text-slate-900 font-black flex items-center justify-center text-lg shadow-sm active:scale-90 transition">-</button>
+                                <span id="children-count" class="text-xl font-black text-amber-600 w-6 text-center">0</span>
+                                <button onclick="changePax('children', 1)" class="w-9 h-9 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black flex items-center justify-center text-lg shadow-sm active:scale-90 transition">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 人均费用实时计算趣味提示 -->
+                    <div class="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-2xl p-3.5 flex items-center justify-between">
+                        <div class="flex items-center gap-2.5">
+                            <span class="text-2xl">🎉</span>
+                            <div class="text-xs sm:text-sm text-slate-700">
+                                当前共 <strong id="total-pax-badge" class="text-slate-950 font-black">4</strong> 人同行，专车费用折合人均约：
+                            </div>
+                        </div>
+                        <span id="per-person-cost" class="text-lg sm:text-xl font-black text-amber-600">RM 125 /人</span>
+                    </div>
+
+                    <!-- 日期与上车地点 -->
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1.5">📅 用车日期 (选填)</label>
+                            <input type="date" id="travel-date" onchange="updateSummary()" class="w-full bg-slate-50 border border-slate-300 focus:border-amber-500 focus:bg-white rounded-xl px-3.5 py-2.5 text-sm text-slate-900 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1.5">🏨 上车地点 / 酒店名称</label>
+                            <input type="text" id="pickup-location" oninput="updateSummary()" placeholder="例如：KLCC 附近酒店 / 武吉免登 / 住家地址..." class="w-full bg-slate-50 border border-slate-300 focus:border-amber-500 focus:bg-white rounded-xl px-3.5 py-2.5 text-sm text-slate-900 outline-none">
+                        </div>
+                    </div>
+
+                    <div class="pt-3 flex justify-between gap-3">
+                        <button onclick="goToStep(1)" class="px-5 py-3.5 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-100 text-sm font-bold transition">
+                            上一步
+                        </button>
+                        <button onclick="goToStep(3)" class="flex-1 sm:flex-none bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-7 py-3.5 rounded-2xl flex items-center justify-center gap-2 shadow-lg transition">
+                            <span id="step2-next-btn-text">下一步：自由勾选想去的景点</span>
+                            <i class="ph-bold ph-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 第三关：游戏化实景照片景点卡牌点选 或 机场接送详情填写 -->
+                <div id="step-panel-3" class="space-y-5 hidden">
+                    <!-- 3A：当选择包车游时显示 -->
+                    <div id="tour-spots-container" class="space-y-4">
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                            <div>
+                                <span class="text-xs font-extrabold text-amber-600 uppercase tracking-wider">STAGE 3 · 自由选景点（不限固定时间）</span>
+                                <h3 class="text-xl sm:text-2xl font-black text-slate-900">想去哪里玩？点击照片自由勾选！</h3>
+                            </div>
+                            <div class="flex gap-2">
+                                <button onclick="toggleAllAttractions(true)" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-800 px-3 py-1.5 rounded-xl border border-slate-300 font-bold">全选热门景点</button>
+                                <button onclick="toggleAllAttractions(false)" class="text-xs bg-white hover:bg-slate-100 text-slate-600 px-3 py-1.5 rounded-xl border border-slate-200 font-bold">清空重选</button>
+                            </div>
+                        </div>
+
+                        <p class="text-xs sm:text-sm text-slate-600 bg-amber-50/80 border border-amber-200 px-3.5 py-2.5 rounded-xl">
+                            💡 <strong>专属包车完全自由 + 免费专业旅拍：</strong>我们<strong>不把时间绑死</strong>，您在下方勾选想去的景点，出发当天拥有<strong>30年摄影经验的司导 Jack</strong> 会按最顺路的节奏带您玩，并全程帮您拍照打卡、讲解景点！
+                        </p>
+
+                        <!-- 带真实照片的景点卡牌网格容器 -->
+                        <div id="attractions-grid" class="grid sm:grid-cols-2 gap-3.5 max-h-[460px] overflow-y-auto pr-1">
+                            <!-- JS 动态渲染带真实照片的景点卡 -->
+                        </div>
+
+                        <!-- 顾客额外想去的自定义景点 -->
+                        <div class="bg-amber-50/70 border border-amber-200 rounded-2xl p-4">
+                            <label class="block text-xs font-black text-amber-900 mb-1.5">
+                                ➕ 还有其他想去的地方、想吃的餐厅或需要再送去别的地点吗？（选填）
+                            </label>
+                            <input type="text" id="custom-spots" oninput="updateSummary()" placeholder="比如：想顺路吃猫山王榴莲、买手信、或者回程送到指定餐厅/酒店..." class="w-full bg-white border border-amber-300 focus:border-amber-500 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 outline-none">
+                        </div>
+                    </div>
+
+                    <!-- 3B：当选择【机场接送服务 (RM200起)】时显示 -->
+                    <div id="airport-transfer-container" class="space-y-4 hidden">
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                            <div>
+                                <span class="text-xs font-extrabold text-sky-600 uppercase tracking-wider">STAGE 3 · 吉隆坡机场接机 / 送机详情</span>
+                                <h3 class="text-xl sm:text-2xl font-black text-slate-900">请选择接机或送机，并填写上下车地点</h3>
+                            </div>
+                            <span class="text-xs font-black bg-sky-100 text-sky-800 px-3 py-1 rounded-full">KL范围 RM 200 起</span>
+                        </div>
+
+                        <!-- 接机 vs 送机 切换卡片 -->
+                        <div>
+                            <label class="block text-xs font-black text-slate-700 mb-2">✈️ 请选择您需要的是【接机】还是【送机】：</label>
+                            <div class="grid sm:grid-cols-2 gap-3">
+                                <div onclick="selectAirportDirection('接机服务 (KLIA/KLIA2 机场 ➔ 吉隆坡酒店/目的地)')" id="airport-dir-pickup" class="game-card selected-car cursor-pointer rounded-2xl border-2 border-slate-200 bg-white p-4 flex items-center gap-3">
+                                    <div class="w-11 h-11 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center text-2xl shrink-0">
+                                        🛬
+                                    </div>
+                                    <div>
+                                        <h4 class="font-black text-slate-900 text-sm sm:text-base">我要【接机】 (Airport Pick-up)</h4>
+                                        <p class="text-xs text-slate-500">从 KLIA / KLIA2 机场接您送到酒店或住家</p>
+                                    </div>
+                                </div>
+
+                                <div onclick="selectAirportDirection('送机服务 (吉隆坡酒店/住家 ➔ KLIA/KLIA2 机场)')" id="airport-dir-dropoff" class="game-card cursor-pointer rounded-2xl border-2 border-slate-200 bg-white p-4 flex items-center gap-3">
+                                    <div class="w-11 h-11 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-2xl shrink-0">
+                                        🛫
+                                    </div>
+                                    <div>
+                                        <h4 class="font-black text-slate-900 text-sm sm:text-base">我要【送机】 (Airport Drop-off)</h4>
+                                        <p class="text-xs text-slate-500">从您的酒店或住家准时送您去 KLIA / KLIA2</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1.5">🏢 哪一个航站楼？(Terminal)</label>
+                                <select id="airport-terminal" onchange="updateSummary()" class="w-full bg-slate-50 border border-slate-300 focus:border-sky-500 focus:bg-white rounded-xl px-3.5 py-2.5 text-sm text-slate-900 outline-none">
+                                    <option value="KLIA 1 (1号航站楼)">KLIA 1 (吉隆坡国际机场 1号航站楼)</option>
+                                    <option value="KLIA 2 (2号航站楼 - 亚航等)">KLIA 2 (吉隆坡国际机场 2号航站楼)</option>
+                                    <option value="Subang 梳邦机场 (SZB)">Subang 梳邦机场 (SZB)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1.5">🧳 行李箱数量 & 航班号 (选填)</label>
+                                <input type="text" id="airport-luggage" oninput="updateSummary()" placeholder="例如：3个24寸行李箱 / 航班 MH123" class="w-full bg-slate-50 border border-slate-300 focus:border-sky-500 focus:bg-white rounded-xl px-3.5 py-2.5 text-sm text-slate-900 outline-none">
+                            </div>
+                        </div>
+
+                        <div class="bg-sky-50 border border-sky-200 rounded-2xl p-4 space-y-3">
+                            <div>
+                                <label class="block text-xs font-black text-sky-950 mb-1.5">
+                                    📍 请填写接送的具体地点 / 酒店地址（吉隆坡 KL 范围 RM 200 起跳，视具体地点报价）：
+                                </label>
+                                <input type="text" id="airport-destination-address" oninput="updateSummary()" placeholder="请填写您要送到哪里，或从哪里上车（如：KLCC 双子塔附近酒店 / 武吉免登 / 其它城市）..." class="w-full bg-white border border-sky-300 focus:border-sky-500 rounded-xl px-3.5 py-2.5 text-sm text-slate-900 outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-sky-900 mb-1.5">
+                                    ➕ 是否需要顺路多停一个点 / 额外接送要求？（选填）
+                                </label>
+                                <input type="text" id="airport-extra-note" oninput="updateSummary()" placeholder="例如：接机后想先去吃个饭再回酒店、或者需要多送一个地点..." class="w-full bg-white border border-sky-300 focus:border-sky-500 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 outline-none">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-2 flex justify-between gap-3">
+                        <button onclick="goToStep(2)" class="px-5 py-3.5 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-100 text-sm font-bold transition">
+                            上一步
+                        </button>
+                        <button onclick="goToStep(4)" class="flex-1 sm:flex-none bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-7 py-3.5 rounded-2xl flex items-center justify-center gap-2 shadow-lg transition">
+                            <span>下一步：生成预约单 (WhatsApp / 微信)</span>
+                            <i class="ph-bold ph-check-circle"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 第四关：完成定制 & 发送 WhatsApp 或 复制去微信 (WeChat) -->
+                <div id="step-panel-4" class="space-y-5 hidden">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                        <div>
+                            <span class="text-xs font-extrabold text-emerald-600 uppercase tracking-wider">STAGE 4 · 行程单已生成！</span>
+                            <h3 class="text-xl sm:text-2xl font-black text-slate-900">发送给 Jack 确认车位 (<span class="dynamic-phone-display">012-8331935</span>)</h3>
+                        </div>
+                        <button onclick="goToStep(3)" class="text-xs font-bold text-slate-500 hover:text-slate-900 flex items-center gap-1">
+                            <i class="ph-bold ph-arrow-left"></i> 修改景点
+                        </button>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1.5">👤 您的称呼 (怎么称呼您？)</label>
+                            <input type="text" id="customer-name" oninput="updateSummary()" placeholder="例如：陈先生 / 王小姐 / Mr. Lee" class="w-full bg-slate-50 border border-slate-300 focus:border-amber-500 focus:bg-white rounded-xl px-3.5 py-2.5 text-sm text-slate-900 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1.5">📸 摄影师跟拍与玩法偏好</label>
+                            <select id="trip-vibe" onchange="updateSummary()" class="w-full bg-slate-50 border border-slate-300 focus:border-amber-500 focus:bg-white rounded-xl px-3.5 py-2.5 text-sm text-slate-900 outline-none">
+                                <option value="需要Jack摄影师帮忙多拍美照 + 景点介绍">📸 需要Jack摄影师帮忙多拍美照 + 景点介绍</option>
+                                <option value="轻松休闲，慢慢逛 + 家庭合照跟拍">😌 轻松休闲，慢慢逛 + 家庭合照跟拍</option>
+                                <option value="吃货优先，专攻地道美食 + 打卡拍照">🍜 吃货优先，专攻地道美食 + 打卡拍照</option>
+                                <option value="带长辈/小孩，少走路舒适游">👨‍👩‍👧‍👦 带长辈/小孩，少走路舒适游</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- 生成的行程文字预览框 -->
+                    <div class="bg-slate-50 border-2 border-slate-200 rounded-2xl p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-extrabold text-slate-700 flex items-center gap-1.5">
+                                <i class="ph-fill ph-file-text text-amber-500 text-base"></i>
+                                您的专属预约单（可直接发送给 Jack）：
+                            </span>
+                            <button onclick="copyItineraryText(false)" class="text-xs bg-amber-100 hover:bg-amber-200 text-amber-900 font-bold px-3.5 py-1 rounded-lg flex items-center gap-1 transition">
+                                <i class="ph-bold ph-copy"></i> 复制全文
+                            </button>
+                        </div>
+                        <pre id="whatsapp-preview-box" class="text-xs text-slate-800 whitespace-pre-wrap font-sans bg-white p-3.5 rounded-xl border border-slate-200 leading-relaxed shadow-inner"></pre>
+                    </div>
+
+                    <!-- 双通道发送区：WhatsApp 按钮 + 中国游客专属微信复制按钮 -->
+                    <div class="grid sm:grid-cols-2 gap-3.5 pt-1">
+                        <!-- 方式 1：WhatsApp 一键发送 -->
+                        <button onclick="sendToWhatsApp()" class="pulse-btn w-full bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white font-black text-sm sm:text-base py-4 px-5 rounded-2xl shadow-lg flex flex-col items-center justify-center gap-1 transition transform active:scale-98">
+                            <div class="flex items-center gap-2">
+                                <i class="ph-fill ph-whatsapp-logo text-2xl"></i>
+                                <span>通过 WhatsApp 发送预订</span>
+                            </div>
+                            <span class="text-[11px] font-normal text-emerald-100">直接发送给 Jack (<span class="dynamic-phone-display">012-8331935</span>)</span>
+                        </button>
+
+                        <!-- 方式 2：没有 WhatsApp 的中国游客一键复制发微信 WeChat -->
+                        <button onclick="copyForWeChat()" class="w-full bg-gradient-to-r from-slate-900 to-slate-800 hover:from-slate-800 hover:to-slate-700 text-white font-black text-sm sm:text-base py-4 px-5 rounded-2xl shadow-lg flex flex-col items-center justify-center gap-1 border-2 border-green-500/40 transition transform active:scale-98">
+                            <div class="flex items-center gap-2 text-green-400">
+                                <i class="ph-fill ph-wechat-logo text-2xl"></i>
+                                <span>没有 WhatsApp？复制发微信</span>
+                            </div>
+                            <span class="text-[11px] font-normal text-slate-300">中国游客专属：一键复制行程去微信粘贴</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧：实时互动行程路线护照 (占 5 列) -->
+            <div class="lg:col-span-5 sticky top-20 space-y-4">
+                <div class="bg-white border-2 border-amber-400 rounded-3xl p-5 sm:p-6 shadow-xl relative overflow-hidden">
+                    <!-- 顶部所选路线实景横幅图 -->
+                    <div class="relative h-32 -mx-5 -mt-5 sm:-mx-6 sm:-mt-6 mb-4 overflow-hidden bg-slate-800">
+                        <img id="summary-banner-img" src="IMG_1686.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80';" alt="行程封面" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/35 to-transparent p-4 flex items-end justify-between">
+                            <div class="flex items-center gap-2.5">
+                                <span class="text-3xl" id="summary-icon">🚡</span>
+                                <div>
+                                    <span class="text-[10px] font-black text-amber-300 uppercase tracking-wider block">JACK CAR TRAVEL PASSPORT</span>
+                                    <h3 id="summary-title" class="text-lg font-black text-white">云顶高原一日游</h3>
+                                </div>
+                            </div>
+                            <div class="text-right bg-amber-400 text-slate-950 px-3 py-1 rounded-xl shadow">
+                                <span id="summary-price-label" class="text-[10px] font-bold block">包车配套价</span>
+                                <span id="summary-price" class="text-xl font-black">RM 500</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 关键参数小卡片 -->
+                    <div class="grid grid-cols-3 gap-2 mb-3 text-center">
+                        <div class="bg-slate-50 border border-slate-200 rounded-xl p-2">
+                            <span class="text-[11px] text-slate-500 block">乘车人数</span>
+                            <span id="summary-pax" class="text-xs sm:text-sm font-black text-slate-900">4位大人</span>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-200 rounded-xl p-2">
+                            <span class="text-[11px] text-slate-500 block">专属福利</span>
+                            <span id="summary-duration" class="text-xs sm:text-sm font-black text-orange-600">免费摄影跟拍</span>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-200 rounded-xl p-2">
+                            <span class="text-[11px] text-slate-500 block">自选内容</span>
+                            <span id="summary-spots-count" class="text-xs sm:text-sm font-black text-emerald-600">5 个景点</span>
+                        </div>
+                    </div>
+
+                    <!-- 所选专车显示条 -->
+                    <div class="bg-sky-50 border border-sky-200 rounded-xl px-3.5 py-2 mb-4 flex items-center justify-between text-xs">
+                        <span class="text-slate-600 flex items-center gap-1.5 font-medium">
+                            <i class="ph-fill ph-car-profile text-sky-600 text-base"></i> 所选专车：
+                        </span>
+                        <strong id="summary-car" class="text-sky-900 font-black">Nissan Serena (豪华商务舱 MPV)</strong>
+                    </div>
+
+                    <!-- 动态自选景点清单 -->
+                    <div class="mb-4">
+                        <div class="flex items-center justify-between text-xs font-bold text-slate-700 mb-2.5">
+                            <span id="timeline-header-label">🗺️ 您挑选的打卡景点：</span>
+                            <button onclick="openPosterModal()" class="text-amber-600 hover:underline flex items-center gap-1">
+                                <i class="ph-bold ph-images"></i> 景点清单总览
+                            </button>
+                        </div>
+                        <div id="live-timeline" class="space-y-2 max-h-[250px] overflow-y-auto pr-1">
+                            <!-- JS 动态生成路线节点 -->
+                        </div>
+                    </div>
+
+                    <!-- 右侧底部快捷按钮 -->
+                    <div class="grid grid-cols-2 gap-2.5 pt-2 border-t border-slate-100">
+                        <button type="button" onclick="sendToWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs py-3 px-3 rounded-xl shadow flex items-center justify-center gap-1.5 transition">
+                            <i class="ph-fill ph-whatsapp-logo text-lg"></i>
+                            <span>填好发 WhatsApp</span>
+                        </button>
+                        <button type="button" onclick="copyForWeChat()" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-black text-xs py-3 px-3 rounded-xl shadow flex items-center justify-center gap-1.5 transition">
+                            <i class="ph-fill ph-wechat-logo text-lg text-green-400"></i>
+                            <span>复制发微信</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 30年经验摄影师司导 Jack 专属介绍区 -->
+        <section class="mt-14 pt-10 border-t border-slate-200">
+            <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-6 sm:p-10 text-white shadow-2xl relative overflow-hidden">
+                <div class="grid md:grid-cols-12 gap-8 items-center">
+                    <div class="md:col-span-4 flex flex-col items-center text-center">
+                        <div class="w-44 h-44 rounded-3xl bg-white p-2 shadow-2xl border-4 border-amber-400 flex flex-col items-center justify-center overflow-hidden">
+                            <img id="site-logo-footer" src="IMG_1685.jpg" onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/initials/svg?seed=JC&backgroundColor=f59e0b&textColor=fff';" alt="Jack Car Travel Logo" class="w-full h-full object-cover rounded-2xl">
+                        </div>
+                        <span class="mt-3 bg-amber-400 text-slate-950 text-xs font-black px-4 py-1 rounded-full">
+                            📞 专线：<span class="dynamic-phone-display">012-8331935</span>
+                        </span>
+                    </div>
+                    <div class="md:col-span-8 space-y-4">
+                        <span class="text-xs font-extrabold text-amber-400 uppercase tracking-widest">MORE THAN JUST A DRIVER · 不仅仅是包车司机</span>
+                        <h2 class="text-2xl sm:text-3xl font-black leading-tight">
+                            包车即送“私人导游 + 30年经验专业摄影师”！
+                        </h2>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            很多游客包车最怕遇到“只顾开车、问什么都不知道”的司机。<strong>Jack Car Travel</strong> 完全不同！Jack 拥有<strong>30年拍戏与摄影师实战经验</strong>，只要您包车（一日游配套），Jack 不仅安全舒适地带您抵达每一个景点，还会：
+                        </p>
+                        <div class="grid sm:grid-cols-3 gap-3 pt-2">
+                            <div class="bg-white/10 backdrop-blur-sm border border-white/15 p-3.5 rounded-2xl">
+                                <div class="text-amber-400 font-black text-sm mb-1">📸 1. 专业级帮拍美照</div>
+                                <p class="text-xs text-slate-300">熟悉二奶巷、黑风洞彩虹阶梯、荷兰红屋最佳拍照角度，主动帮您和家人拍出大片感！</p>
+                            </div>
+                            <div class="bg-white/10 backdrop-blur-sm border border-white/15 p-3.5 rounded-2xl">
+                                <div class="text-amber-400 font-black text-sm mb-1">🎙️ 2. 贴心景点与美食介绍</div>
+                                <p class="text-xs text-slate-300">沿途生动讲解风土人情，带您去吃本地人才懂的老字号美食，绝不踩雷！</p>
+                            </div>
+                            <div class="bg-white/10 backdrop-blur-sm border border-white/15 p-3.5 rounded-2xl">
+                                <div class="text-amber-400 font-black text-sm mb-1">🚐 3. 时间自由不催促</div>
+                                <p class="text-xs text-slate-300">10小时包车随心停留，拍够了、吃饱了再走，老人小孩都能玩得尽兴！</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 专车车队实景介绍区 (Perodua Alza & Nissan Serena) -->
+        <section class="mt-14 pt-10 border-t border-slate-200">
+            <div class="text-center max-w-2xl mx-auto mb-8">
+                <span class="text-xs font-extrabold text-sky-600 uppercase tracking-widest">OUR COMFORT FLEET</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">两款精选舒适专车任您选择</h2>
+                <p class="text-xs sm:text-sm text-slate-600 mt-2">
+                    无论您是包车出游，还是吉隆坡机场接机/送机，Jack Car Travel 都提供干净整洁、冷气充足的 MPV 专车服务。
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- 车型展示 1：Nissan Serena -->
+                <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-lg flex flex-col justify-between">
+                    <div class="h-56 relative overflow-hidden bg-white border-b border-slate-100 flex items-center justify-center">
+                        <img id="car-img-serena-fleet" src="IMG_1743.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1619682817481-e994891cd1f5?auto=format&fit=crop&w=800&q=80';" alt="Nissan Serena MPV" class="w-full h-full object-contain p-3">
+                        <div class="absolute top-3 left-3 bg-amber-400 text-slate-950 font-black text-xs px-3 py-1 rounded-full shadow">
+                            ★ 豪华商务舱 MPV
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-xl font-black text-slate-900">Nissan Serena 豪华商务车</h3>
+                            <span class="text-xs font-bold text-sky-700 bg-sky-100 px-2.5 py-1 rounded-lg">推荐 1 - 6 位乘客</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-600 mb-4">
+                            高顶宽敞车身设计，配备双侧电动滑门与中排独立舒适 Captain 航空座椅，老人家与小孩上下车极佳，长途去怡保、马六甲、上云顶或放机场大件行李都倍感轻松。
+                        </p>
+                        <button onclick="selectCarModel('Nissan Serena (豪华商务舱 MPV)'); goToStep(2); document.getElementById('customizer-section').scrollIntoView({behavior: 'smooth'});" class="w-full py-3 rounded-xl bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-white font-black text-xs sm:text-sm transition">
+                            选择 Nissan Serena 专车 ➔
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 车型展示 2：Perodua Alza -->
+                <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-lg flex flex-col justify-between">
+                    <div class="h-56 relative overflow-hidden bg-white border-b border-slate-100 flex items-center justify-center">
+                        <img id="car-img-alza-fleet" src="IMG_1745.AVIF" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=800&q=80';" alt="Perodua Alza MPV" class="w-full h-full object-contain p-3">
+                        <div class="absolute top-3 left-3 bg-emerald-400 text-slate-950 font-black text-xs px-3 py-1 rounded-full shadow">
+                            ★ 舒适灵活型 MPV
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-xl font-black text-slate-900">Perodua Alza 舒适休旅车</h3>
+                            <span class="text-xs font-bold text-emerald-700 bg-emerald-100 px-2.5 py-1 rounded-lg">推荐 1 - 5 位乘客</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-600 mb-4">
+                            马来西亚最受欢迎的新一代舒适型 MPV，车身灵巧好坐，后排冷气出风口凉爽宜人，非常适合情侣、闺蜜同行、小家庭包车一日游或机场接送。
+                        </p>
+                        <button onclick="selectCarModel('Perodua Alza (舒适家用 MPV)'); goToStep(2); document.getElementById('customizer-section').scrollIntoView({behavior: 'smooth'});" class="w-full py-3 rounded-xl bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-white font-black text-xs sm:text-sm transition">
+                            选择 Perodua Alza 专车 ➔
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 底部：动态渲染所有王牌配套介绍卡片 -->
+        <section class="mt-14 pt-10 border-t border-slate-200">
+            <div class="text-center max-w-2xl mx-auto mb-8">
+                <span class="text-xs font-extrabold text-amber-600 uppercase tracking-widest">JACK CAR TRAVEL PACKAGES</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">随心包车一日游 (含摄影跟拍) & 机场接送</h2>
+                <p class="text-xs sm:text-sm text-slate-600 mt-2">
+                    所有一日游均为私人专车，不限制死板时间，30年摄影经验司导 Jack 带您边玩边拍！
+                </p>
+            </div>
+
+            <div id="bottom-packages-grid" class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <!-- 由 JS 动态生成，支持后台新增新配套 -->
+            </div>
+        </section>
+    </main>
+
+    <!-- 路线推荐总览弹窗 Modal -->
+    <div id="poster-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white border border-slate-200 rounded-3xl max-w-2xl w-full p-6 shadow-2xl space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <h3 id="modal-title" class="text-lg font-black text-slate-900">路线景点总览</h3>
+                <button onclick="closePosterModal()" class="w-8 h-8 rounded-xl bg-slate-100 text-slate-600 hover:text-slate-950 flex items-center justify-center">
+                    <i class="ph-bold ph-x"></i>
+                </button>
+            </div>
+            <div id="modal-body" class="space-y-3 text-sm max-h-[65vh] overflow-y-auto pr-1">
+                <!-- 动态内容 -->
+            </div>
+            <div class="pt-2 flex justify-end">
+                <button onclick="closePosterModal()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-6 py-2.5 rounded-xl text-sm">
+                    太棒了，继续选景点
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 微信 WeChat 复制成功与添加客服指引弹窗 -->
+    <div id="wechat-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white border-2 border-green-500 rounded-3xl max-w-md w-full p-6 shadow-2xl text-center space-y-4">
+            <div class="w-16 h-16 rounded-2xl bg-green-100 text-green-600 flex items-center justify-center mx-auto text-4xl shadow-sm">
+                <i class="ph-fill ph-wechat-logo"></i>
+            </div>
+            <div>
+                <span class="text-xs font-extrabold bg-green-100 text-green-800 px-3 py-1 rounded-full">✓ 专属行程单已成功复制！</span>
+                <h3 class="text-xl font-black text-slate-900 mt-2">请打开微信 (WeChat) 发送给 Jack</h3>
+                <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                    您的包车行程单已经复制到剪贴板了！请按以下步骤在微信联系 Jack：
+                </p>
+            </div>
+
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-left space-y-2.5 text-xs text-slate-700">
+                <div class="flex items-center justify-between bg-white p-2.5 rounded-xl border border-slate-200">
+                    <div>
+                        <span class="text-slate-400 block text-[10px]">Jack Car Travel 微信 / 手机号：</span>
+                        <strong class="text-base font-black text-slate-900 select-all dynamic-phone-display">012-8331935</strong>
+                        <span class="text-[11px] text-slate-500 block">（或搜索 +60<span class="dynamic-phone-raw">128331935</span>）</span>
+                    </div>
+                    <button onclick="copyWeChatId()" class="bg-green-600 hover:bg-green-500 text-white font-bold px-3 py-1.5 rounded-lg text-xs">
+                        复制号码
+                    </button>
+                </div>
+                <p>1️⃣ 打开微信，添加司导 Jack 或直接打开对话框。</p>
+                <p>2️⃣ 在聊天输入框长按<strong>“粘贴 (Paste)”</strong>，把刚刚定制好的行程单发给 Jack 即可！</p>
+            </div>
+
+            <div class="flex gap-2 pt-1">
+                <button onclick="copyItineraryText(false)" class="flex-1 py-3 rounded-xl border border-slate-300 text-slate-700 font-bold text-xs hover:bg-slate-100">
+                    再次复制行程单
+                </button>
+                <button onclick="closeWeChatModal()" class="flex-1 py-3 rounded-xl bg-green-600 hover:bg-green-500 text-white font-black text-xs shadow-md">
+                    好的，去微信粘贴
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- 可视化后台管理系统 (CMS Admin Panel)         -->
+    <!-- ========================================== -->
+    <div id="admin-modal" class="fixed inset-0 z-50 bg-slate-950/75 backdrop-blur-md hidden items-center justify-center p-2 sm:p-4">
+        <div class="bg-white border border-slate-200 rounded-3xl max-w-4xl w-full max-h-[92vh] flex flex-col shadow-2xl overflow-hidden">
+            <!-- 后台顶部栏 -->
+            <div class="bg-slate-900 text-white px-5 py-4 flex items-center justify-between shrink-0">
+                <div class="flex items-center gap-2.5">
+                    <span class="w-9 h-9 rounded-xl bg-amber-400 text-slate-950 flex items-center justify-center font-black text-lg">⚙️</span>
+                    <div>
+                        <h3 class="font-black text-base sm:text-lg">JACK CAR TRAVEL 网站可视化管理后台</h3>
+                        <p class="text-[11px] text-slate-400">随时换照片、改字体、改价格、新增包车配套与景点</p>
+                    </div>
+                </div>
+                <button onclick="closeAdminModal()" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-white/20 text-white flex items-center justify-center">
+                    <i class="ph-bold ph-x text-lg"></i>
+                </button>
+            </div>
+
+            <!-- 登录锁屏界面 -->
+            <div id="admin-login-view" class="p-8 text-center space-y-4 my-auto">
+                <div class="w-16 h-16 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center mx-auto text-3xl">
+                    <i class="ph-fill ph-lock-key"></i>
+                </div>
+                <h4 class="text-xl font-black text-slate-900">管理员身份验证</h4>
+                <p class="text-xs text-slate-500">请输入您的管理员专属密码以解锁编辑权限</p>
+                <div class="max-w-xs mx-auto space-y-3">
+                    <input type="password" id="admin-password-input" onkeydown="if(event.key==='Enter') verifyAdminLogin()" placeholder="请输入管理员密码" class="w-full text-center tracking-widest font-black text-lg border-2 border-slate-300 focus:border-amber-500 rounded-xl px-4 py-2.5 outline-none">
+                    <button onclick="verifyAdminLogin()" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-black py-3 rounded-xl shadow">
+                        解锁进入后台 ➔
+                    </button>
+                </div>
+            </div>
+
+            <!-- 后台主编辑工作区 (登录后显示) -->
+            <div id="admin-workspace-view" class="hidden flex-1 flex flex-col overflow-hidden">
+                <!-- 后台标签页切换 -->
+                <div class="flex border-b border-slate-200 bg-slate-50 px-4 pt-2 gap-2 overflow-x-auto shrink-0">
+                    <button onclick="switchAdminTab('general')" id="admin-tab-general" class="admin-tab px-4 py-2.5 text-xs sm:text-sm font-black rounded-t-xl bg-white border-t border-x border-slate-200 text-amber-600">
+                        🎨 1. 文字、字体与密码
+                    </button>
+                    <button onclick="switchAdminTab('images')" id="admin-tab-images" class="admin-tab px-4 py-2.5 text-xs sm:text-sm font-bold rounded-t-xl text-slate-500 hover:text-slate-900">
+                        🖼️ 2. 更换 Logo 与专车照片
+                    </button>
+                    <button onclick="switchAdminTab('packages')" id="admin-tab-packages" class="admin-tab px-4 py-2.5 text-xs sm:text-sm font-bold rounded-t-xl text-slate-500 hover:text-slate-900">
+                        🚐 3. 管理/新增配套与景点
+                    </button>
+                    <button onclick="switchAdminTab('publish')" id="admin-tab-publish" class="admin-tab px-4 py-2.5 text-xs sm:text-sm font-bold rounded-t-xl text-slate-500 hover:text-slate-900">
+                        🚀 4. 一键生成新版上线文件
+                    </button>
+                </div>
+
+                <!-- 滚动编辑内容区 -->
+                <div class="p-5 sm:p-6 overflow-y-auto flex-1 space-y-6">
+
+                    <!-- Tab 1: 文字、字体与联系方式 + 自定义密码 -->
+                    <div id="admin-panel-general" class="space-y-4">
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-black text-slate-700 mb-1">网站品牌大标题</label>
+                                <input type="text" id="edit-brand-title" class="w-full border border-slate-300 rounded-xl px-3.5 py-2 text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-black text-slate-700 mb-1">主副标题 (渐变色大字)</label>
+                                <input type="text" id="edit-hero-subtitle" class="w-full border border-slate-300 rounded-xl px-3.5 py-2 text-sm">
+                            </div>
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-black text-slate-700 mb-1">客服显示电话 (如 012-8331935)</label>
+                                <input type="text" id="edit-display-phone" class="w-full border border-slate-300 rounded-xl px-3.5 py-2 text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-black text-slate-700 mb-1">WhatsApp 国际号码 (必须带60，如 60128331935)</label>
+                                <input type="text" id="edit-wa-phone" class="w-full border border-slate-300 rounded-xl px-3.5 py-2 text-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-black text-slate-700 mb-1">首屏介绍文案 (支持修改文字内容)</label>
+                            <textarea id="edit-hero-desc" rows="3" class="w-full border border-slate-300 rounded-xl px-3.5 py-2 text-sm"></textarea>
+                        </div>
+
+                        <!-- 自定义后台管理密码区 -->
+                        <div class="bg-slate-900 text-white rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                            <div>
+                                <span class="text-xs font-black text-amber-400 block">🔐 修改后台管理登录密码</span>
+                                <span class="text-[11px] text-slate-300">您可以随时设置新的后台登录密码</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <input type="text" id="edit-admin-password" placeholder="输入新密码" class="w-36 bg-white text-slate-900 font-black text-sm rounded-xl px-3 py-2 outline-none">
+                            </div>
+                        </div>
+
+                        <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4">
+                            <label class="block text-xs font-black text-amber-950 mb-2">🔤 全站字体样式切换 (Font Family)</label>
+                            <div class="grid grid-cols-3 gap-3">
+                                <button type="button" onclick="setSiteFont(`'Noto Sans SC', sans-serif`)" class="p-3 rounded-xl bg-white border-2 border-slate-200 hover:border-amber-500 text-center">
+                                    <span class="block font-black text-sm" style="font-family: 'Noto Sans SC', sans-serif;">现代商务黑体</span>
+                                    <span class="text-[11px] text-slate-500">清晰大气 (默认)</span>
+                                </button>
+                                <button type="button" onclick="setSiteFont(`'Noto Serif SC', serif`)" class="p-3 rounded-xl bg-white border-2 border-slate-200 hover:border-amber-500 text-center">
+                                    <span class="block font-black text-sm" style="font-family: 'Noto Serif SC', serif;">尊贵优雅宋体</span>
+                                    <span class="text-[11px] text-slate-500">高端精品质感</span>
+                                </button>
+                                <button type="button" onclick="setSiteFont(`'ZCOOL KuaiLe', cursive, sans-serif`)" class="p-3 rounded-xl bg-white border-2 border-slate-200 hover:border-amber-500 text-center">
+                                    <span class="block font-black text-sm" style="font-family: 'ZCOOL KuaiLe', sans-serif;">活泼旅游圆体</span>
+                                    <span class="text-[11px] text-slate-500">轻松趣味风格</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 2: 更换 Logo 与专车照片 -->
+                    <div id="admin-panel-images" class="space-y-4 hidden">
+                        <p class="text-xs text-slate-600 bg-sky-50 border border-sky-200 p-3 rounded-xl">
+                            💡 <strong>支持直接从相册选图上传：</strong>点击下方“上传照片”，即可把您手机或电脑里的真实图片直接替换上去！换完后记得去第4个标签点击“下载最新完整版 index.html”更新上线。
+                        </p>
+
+                        <div class="grid sm:grid-cols-3 gap-4">
+                            <!-- 换 Logo -->
+                            <div class="border border-slate-200 rounded-2xl p-3.5 text-center space-y-2.5 bg-slate-50">
+                                <span class="text-xs font-black text-slate-800 block">1. 品牌 Logo 头像</span>
+                                <img id="admin-preview-logo" src="IMG_1685.jpg" class="w-24 h-24 rounded-2xl object-cover mx-auto border border-slate-300 bg-white">
+                                <label class="block cursor-pointer bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-2 px-3 rounded-xl">
+                                    📷 上传新 Logo
+                                    <input type="file" accept="image/*" class="hidden" onchange="handleImageUpload(event, 'logo')">
+                                </label>
+                            </div>
+
+                            <!-- 换 银色 Nissan Serena -->
+                            <div class="border border-slate-200 rounded-2xl p-3.5 text-center space-y-2.5 bg-slate-50">
+                                <span class="text-xs font-black text-slate-800 block">2. Nissan Serena 照片</span>
+                                <img id="admin-preview-serena" src="IMG_1743.jpg" class="w-full h-24 rounded-xl object-contain mx-auto border border-slate-300 bg-white p-1">
+                                <label class="block cursor-pointer bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold py-2 px-3 rounded-xl">
+                                    🚐 上传 Serena 照片
+                                    <input type="file" accept="image/*" class="hidden" onchange="handleImageUpload(event, 'serena')">
+                                </label>
+                            </div>
+
+                            <!-- 换 红色 Perodua Alza -->
+                            <div class="border border-slate-200 rounded-2xl p-3.5 text-center space-y-2.5 bg-slate-50">
+                                <span class="text-xs font-black text-slate-800 block">3. Perodua Alza 照片</span>
+                                <img id="admin-preview-alza" src="IMG_1745.AVIF" class="w-full h-24 rounded-xl object-contain mx-auto border border-slate-300 bg-white p-1">
+                                <label class="block cursor-pointer bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold py-2 px-3 rounded-xl">
+                                    🚗 上传 Alza 照片
+                                    <input type="file" accept="image/*" class="hidden" onchange="handleImageUpload(event, 'alza')">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 3: 管理 / 新增配套与景点 -->
+                    <div id="admin-panel-packages" class="space-y-5 hidden">
+                        <!-- 新增一个全新的包车配套 -->
+                        <div class="bg-emerald-50 border-2 border-emerald-300 rounded-2xl p-4 space-y-3">
+                            <h4 class="font-black text-emerald-950 text-sm flex items-center gap-1.5">
+                                <i class="ph-fill ph-plus-circle text-lg text-emerald-600"></i>
+                                添加一个全新的旅游配套（例如：槟城一日游 / 金马仑高原 / 萤火虫之旅）
+                            </h4>
+                            <div class="grid sm:grid-cols-3 gap-3">
+                                <input type="text" id="new-pkg-name" placeholder="配套名称 (如: 金马仑高原一日游)" class="bg-white border border-emerald-300 rounded-xl px-3 py-2 text-xs">
+                                <input type="number" id="new-pkg-price" placeholder="价格数字 (如: 750)" class="bg-white border border-emerald-300 rounded-xl px-3 py-2 text-xs">
+                                <input type="text" id="new-pkg-icon" placeholder="Emoji 图标 (如: 🍓)" value="🌴" class="bg-white border border-emerald-300 rounded-xl px-3 py-2 text-xs">
+                            </div>
+                            <div class="grid sm:grid-cols-2 gap-3 items-center">
+                                <input type="text" id="new-pkg-subtitle" placeholder="简短副标题 (如: 私人专车 · 含茶园与草莓园打卡)" class="bg-white border border-emerald-300 rounded-xl px-3 py-2 text-xs">
+                                <div class="flex items-center gap-2">
+                                    <label class="flex-1 cursor-pointer bg-white border border-emerald-400 text-emerald-800 text-xs font-bold py-2 px-3 rounded-xl text-center truncate">
+                                        <span id="new-pkg-img-label">📷 上传配套封面照 (可选)</span>
+                                        <input type="file" accept="image/*" class="hidden" onchange="handleNewPkgImage(event)">
+                                    </label>
+                                    <button type="button" onclick="addNewPackage()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs px-4 py-2 rounded-xl shadow shrink-0">
+                                        + 立即添加配套
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 现有配套列表与修改 -->
+                        <div class="space-y-3">
+                            <h4 class="font-black text-slate-900 text-sm">现有配套列表（可直接修改价格、换封面图、增删景点）：</h4>
+                            <div id="admin-packages-list" class="space-y-3">
+                                <!-- JS 动态渲染 -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 4: 一键导出最新全站代码上线 -->
+                    <div id="admin-panel-publish" class="space-y-4 hidden">
+                        <div class="bg-amber-50 border-2 border-amber-400 rounded-2xl p-5 space-y-3">
+                            <h4 class="font-black text-slate-900 text-base">🚀 为什么不需要另外买数据库？如何让所有客人看到最新照片？</h4>
+                            <p class="text-xs text-slate-700 leading-relaxed">
+                                1. <strong>无需数据库：</strong>顾客选好行程后直接把文字发到您的 WhatsApp / 微信，订单直接进您手机，零月费成本。<br>
+                                2. <strong>一键打包最新照片与修改：</strong>您在后台上传的新照片、修改的密码和新增的配套，只要点击下方<strong>“下载最新完整版 index.html 文件”</strong>，系统会自动把所有新照片和设置全部打包进这一个文件里！然后您重新上传到 <strong>Netlify / Google Sites</strong>，全世界客人打开就全部同步更新了！
+                            </p>
+                            <div class="flex flex-wrap gap-3 pt-1">
+                                <button type="button" onclick="exportUpdatedHtmlFile()" class="bg-slate-900 hover:bg-slate-800 text-amber-400 font-black text-xs sm:text-sm px-5 py-3 rounded-xl shadow-lg flex items-center gap-2">
+                                    <i class="ph-bold ph-download-simple text-lg"></i>
+                                    <span>下载最新完整版 index.html 文件</span>
+                                </button>
+                                <button type="button" onclick="resetAdminData()" class="bg-white hover:bg-rose-50 text-rose-600 border border-rose-200 font-bold text-xs px-4 py-3 rounded-xl">
+                                    恢复出厂默认设置
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 后台底部保存按钮栏 -->
+                <div class="bg-slate-100 border-t border-slate-200 px-5 py-3.5 flex items-center justify-between shrink-0">
+                    <span class="text-xs text-slate-500">提示：点击右侧按钮立即应用并保存所有更改</span>
+                    <div class="flex gap-2">
+                        <button onclick="closeAdminModal()" class="px-4 py-2 rounded-xl border border-slate-300 bg-white text-slate-700 font-bold text-xs">
+                            取消关闭
+                        </button>
+                        <button onclick="saveAdminChanges()" class="px-6 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs sm:text-sm shadow">
+                            ✓ 保存并立即生效
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 自定义提示消息框 Toast -->
+    <div id="toast-box" class="fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-2.5 text-sm font-bold transform translate-y-24 opacity-0 transition duration-300 pointer-events-none">
+        <i class="ph-fill ph-check-circle text-xl text-amber-400"></i>
+        <span id="toast-msg">操作成功！</span>
+    </div>
+
+    <!-- 页脚 (右下角含后台管理入口按钮) -->
+    <footer class="bg-white border-t border-slate-200 py-8 mt-12">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+            <div class="flex items-center gap-3 flex-wrap justify-center">
+                <span class="font-black text-slate-900 text-sm">JACK CAR TRAVEL (KL · MALAYSIA)</span>
+                <span>|</span>
+                <span>30年摄影师司导包车跟拍</span>
+                <span>|</span>
+                <span>车型：Perodua Alza & Nissan Serena</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <span>WhatsApp / 微信专线：<strong class="text-slate-900">Jack (<span class="dynamic-phone-display">012-8331935</span>)</strong></span>
+                <button onclick="openAdminModal()" class="ml-2 text-[11px] bg-slate-100 hover:bg-slate-200 text-slate-600 px-2.5 py-1 rounded-lg border border-slate-200 font-bold transition">
+                    ⚙️ 后台管理
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 游戏化逻辑与后台 CMS 脚本 -->
+    <script>
+        let SITE_CONFIG = {
+            brandTitle: "JACK CAR TRAVEL",
+            heroSubtitle: "包车旅游 · 专人讲解与旅拍",
+            heroDesc: "我们的司机与众不同！主理人 Jack 是一位拥有30年拍戏与专业摄影经验的资深摄影师。凡是包车出游，不仅为您提供Perodua Alza与Nissan Serena舒适专车，还会全程贴心为您介绍景点故事，并亲自帮您和家人朋友拍照打卡！包含云顶（RM500）、怡保（RM600）、马六甲（RM600）10小时自由行及机场接送（RM200起）！",
+            displayPhone: "012-8331935",
+            waPhone: "60128331935",
+            adminPassword: "070871",
+            fontFamily: "'Noto Sans SC', sans-serif",
+            logoImg: "IMG_1685.jpg",
+            serenaImg: "IMG_1743.jpg",
+            alzaImg: "IMG_1745.AVIF"
+        };
+
+        const DEFAULT_TOUR_DATA = {
+            genting: {
+                id: 'genting',
+                name: '云顶高原一日游',
+                subtitle: '私人专车 · 30年摄影师司导跟拍',
+                price: 500,
+                priceText: 'RM 500',
+                priceLabel: '包车配套价',
+                durationText: '免费摄影跟拍',
+                icon: '🚡',
+                badgeColor: 'bg-cyan-500',
+                bannerImg: 'IMG_1686.jpg',
+                spots: [
+                    { id: 'g1', tag: '必去打卡', name: '黑风洞 Batu Caves', desc: '打卡网红272级彩虹阶梯 & 巨型金神像 (Jack帮您拍大片)', emoji: '🌈', img: 'IMG_1686.jpg', selected: true },
+                    { id: 'g2', tag: '地道美食', name: '梧桐再也 Gohtong Jaya (半山)', desc: '品尝地道半山河鲜美食 & 猫山王榴莲', emoji: '🍲', img: 'IMG_1686.jpg', selected: true },
+                    { id: 'g3', tag: '高空缆车', name: '阿娃娜缆车站 Awana SkyWay', desc: '乘坐高空云顶缆车俯瞰壮丽热带雨林', emoji: '🚠', img: 'IMG_1686.jpg', selected: true },
+                    { id: 'g4', tag: '云海仙境', name: '清水岩庙 Chin Swee Temple', desc: '云海九层万佛塔、仙境步道与巨型观音像 (超美机位)', emoji: '🏯', img: 'IMG_1686.jpg', selected: true },
+                    { id: 'g5', tag: '核心乐园', name: '云天大道 SkyAvenue (云顶世界)', desc: '顶峰购物城、室内外主题游乐园、娱乐场', emoji: '🎡', img: 'IMG_1686.jpg', selected: true },
+                    { id: 'g6', tag: '名牌购物', name: '云顶名牌城 Premium Outlets', desc: '国际大牌折扣购物中心 (就在缆车站旁)', emoji: '🛍️', img: 'IMG_1686.jpg', selected: false }
+                ]
+            },
+            ipoh: {
+                id: 'ipoh',
+                name: '怡保一日游：美食山城',
+                subtitle: '私人专车 · 30年摄影师司导跟拍',
+                price: 600,
+                priceText: 'RM 600',
+                priceLabel: '包车配套价',
+                durationText: '免费摄影跟拍',
+                icon: '⛰️',
+                badgeColor: 'bg-emerald-500',
+                bannerImg: 'IMG_1687.JPG',
+                spots: [
+                    { id: 'i1', tag: '古早茶室', name: '天津茶室 Thean Chun', desc: '老街必吃：正宗白咖啡、鸡丝沙河粉、焦糖炖蛋', emoji: '☕', img: 'IMG_1687.JPG', selected: true },
+                    { id: 'i2', tag: '人气小吃', name: '奇峰豆腐花 Funny Mountain', desc: '传统丝滑豆花与冰凉豆浆，怡保必吃排队名店', emoji: '🥣', img: 'IMG_1687.JPG', selected: true },
+                    { id: 'i3', tag: '百年老街', name: '二奶巷 Concubine Lane', desc: '百年老街建筑、壁画街拍、特色手信打卡圣地', emoji: '🏮', img: 'IMG_1687.JPG', selected: true },
+                    { id: 'i4', tag: '怡保招牌', name: '老黄 / 安记芽菜鸡沙河粉', desc: '怡保灵魂美食：爽脆山泉芽菜配嫩滑白斩鸡', emoji: '🍗', img: 'IMG_1687.JPG', selected: true },
+                    { id: 'i5', tag: '天然溶洞', name: '极乐洞 / 霹雳洞 (Kek Lok Tong)', desc: '壮丽天然钟乳石溶洞、红墙古庙打卡、碧绿湖景', emoji: '🚣', img: 'IMG_1688.JPG', selected: true },
+                    { id: 'i6', tag: '下午茶歇', name: '建龙长江白咖啡', desc: '山景园林式茶铺，叹正宗怡保长江白咖啡与烤面包', emoji: '🧋', img: 'IMG_1687.JPG', selected: true },
+                    { id: 'i7', tag: '山水秘境', name: '清心岭 Qing Xin Ling', desc: '翡翠湖景隐世小村、怀旧复古街道与水上木屋', emoji: '🏡', img: 'IMG_1688.JPG', selected: true },
+                    { id: 'i8', tag: '甜品夜市', name: '糖水街 Tong Sui Kai', desc: 'ABC杂雪、杂果冰与丰富地道怡保小吃', emoji: '🍧', img: 'IMG_1687.JPG', selected: true }
+                ]
+            },
+            melaka: {
+                id: 'melaka',
+                name: '马六甲历史与美食之旅',
+                subtitle: '私人专车 · 30年摄影师司导跟拍',
+                price: 600,
+                priceText: 'RM 600',
+                priceLabel: '包车配套价',
+                durationText: '免费摄影跟拍',
+                icon: '🏛️',
+                badgeColor: 'bg-rose-500',
+                bannerImg: 'IMG_1689.JPG',
+                spots: [
+                    { id: 'm1', tag: '必吃美食', name: '和记鸡饭粒 Hoe Kee Chicken Rice', desc: '古早味乒乓球造型手工鸡饭粒配香嫩白斩鸡', emoji: '🍚', img: 'IMG_1689.JPG', selected: true },
+                    { id: 'm2', tag: '世遗地标', name: '荷兰红屋广场 The Stadthuys', desc: '百年荷兰红屋基督堂、维多利亚喷泉、缤纷三轮花车打卡', emoji: '🏰', img: 'IMG_1689.JPG', selected: true },
+                    { id: 'm3', tag: '百年古街', name: '鸡场街百年古街 Jonker Street', desc: '热闹文化街、古董店、黄梨酥与特色娘惹伴手礼', emoji: '🏮', img: 'IMG_1689.JPG', selected: true },
+                    { id: 'm4', tag: '娘惹甜品', name: 'Jonker 88 娘惹晶露 (Cendol)', desc: '招牌榴莲/马六甲椰糖晶露冰、正宗娘惹亚参叻沙', emoji: '🍧', img: 'IMG_1689.JPG', selected: true },
+                    { id: 'm5', tag: '海峡绝景', name: '水上清真寺 Melaka Straits Mosque', desc: '建在马六甲海峡上的唯美清真寺，摄影师帮您拍海岸大片', emoji: '🕌', img: 'IMG_1689.JPG', selected: true },
+                    { id: 'm6', tag: '顺路可选', name: '马六甲河游船 Melaka River Cruise', desc: '乘船游览马六甲河两岸彩绘壁画与历史古桥', emoji: '🚤', img: 'IMG_1689.JPG', selected: false }
+                ]
+            },
+            airport: {
+                id: 'airport',
+                name: '吉隆坡机场专车接送 (接机/送机)',
+                subtitle: 'KLIA / KLIA2 点对点专车接送',
+                price: 200,
+                priceText: 'RM 200起',
+                priceLabel: 'KL范围起跳价',
+                durationText: '点对点接送',
+                icon: '✈️',
+                badgeColor: 'bg-sky-500',
+                bannerImg: 'IMG_1744.JPG',
+                spots: []
+            }
+        };
+
+        let TOUR_DATA = JSON.parse(JSON.stringify(DEFAULT_TOUR_DATA));
+
+        function loadSavedCmsData() {
+            try {
+                const savedConfig = localStorage.getItem('JCT_SITE_CONFIG');
+                const savedTours = localStorage.getItem('JCT_TOUR_DATA');
+                if (savedConfig) SITE_CONFIG = Object.assign(SITE_CONFIG, JSON.parse(savedConfig));
+                if (savedTours) TOUR_DATA = JSON.parse(savedTours);
+            } catch (e) {
+                console.warn('读取本地配置失败', e);
+            }
+        }
+
+        let state = {
+            currentStep: 1,
+            destination: 'genting',
+            carModel: 'Nissan Serena (豪华商务舱 MPV)',
+            adults: 4,
+            children: 0,
+            date: '',
+            pickupLocation: '',
+            customSpots: '',
+            customerName: '',
+            tripVibe: '需要Jack摄影师帮忙多拍美照 + 景点介绍',
+            airportDirection: '接机服务 (KLIA/KLIA2 机场 ➔ 吉隆坡酒店/目的地)',
+            airportTerminal: 'KLIA 1 (1号航站楼)',
+            airportLuggage: '',
+            airportDestAddress: '',
+            airportExtraNote: ''
+        };
+
+        window.onload = function() {
+            loadSavedCmsData();
+            applySiteConfigToUI();
+            renderAllPackageLists();
+
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            const yyyy = tomorrow.getFullYear();
+            const mm = String(tomorrow.getMonth() + 1).padStart(2, '0');
+            const dd = String(tomorrow.getDate()).padStart(2, '0');
+            state.date = `${yyyy}-${mm}-${dd}`;
+            const dateInput = document.getElementById('travel-date');
+            if (dateInput) dateInput.value = state.date;
+
+            renderAttractions();
+            updateSummary();
+        };
+
+        function applySiteConfigToUI() {
+            document.documentElement.style.setProperty('--site-font', SITE_CONFIG.fontFamily);
+            document.body.style.fontFamily = SITE_CONFIG.fontFamily;
+
+            document.getElementById('site-brand-name').innerText = SITE_CONFIG.brandTitle;
+            document.getElementById('hero-main-title').innerText = SITE_CONFIG.brandTitle;
+            document.getElementById('hero-sub-title').innerText = SITE_CONFIG.heroSubtitle;
+            document.getElementById('hero-desc-text').innerText = SITE_CONFIG.heroDesc;
+            document.getElementById('site-nav-sub').innerText = `KL · MALAYSIA | ${SITE_CONFIG.displayPhone} | Perodua Alza & Nissan Serena`;
+            document.getElementById('hero-wa-sub').innerText = `马上联系 Jack (${SITE_CONFIG.displayPhone}) 了解包车`;
+
+            document.querySelectorAll('.dynamic-phone-display').forEach(el => el.innerText = SITE_CONFIG.displayPhone);
+            document.querySelectorAll('.dynamic-phone-raw').forEach(el => el.innerText = SITE_CONFIG.waPhone.replace(/^60/, ''));
+
+            const waText = encodeURIComponent(`你好 Jack (${SITE_CONFIG.brandTitle})！我想了解包车旅游和机场接送服务！`);
+            document.getElementById('top-whatsapp-link').href = `https://wa.me/${SITE_CONFIG.waPhone}?text=${waText}`;
+            document.getElementById('hero-whatsapp-link').href = `https://wa.me/${SITE_CONFIG.waPhone}?text=${waText}`;
+
+            ['site-logo-nav', 'site-logo-banner', 'site-logo-footer'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.src = SITE_CONFIG.logoImg;
+            });
+            ['car-img-serena-step', 'car-img-serena-fleet'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.src = SITE_CONFIG.serenaImg;
+            });
+            ['car-img-alza-step', 'car-img-alza-fleet'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.src = SITE_CONFIG.alzaImg;
+            });
+        }
+
+        function renderAllPackageLists() {
+            const keys = Object.keys(TOUR_DATA);
+            if (!TOUR_DATA[state.destination]) {
+                state.destination = keys[0];
+            }
+
+            const heroGrid = document.getElementById('hero-gallery-grid');
+            if (heroGrid) {
+                heroGrid.innerHTML = keys.map(key => {
+                    const item = TOUR_DATA[key];
+                    const firstSpots = item.spots && item.spots.length > 0
+                        ? item.spots.slice(0, 3).map(s => s.name.split(' ')[0]).join('·')
+                        : 'KLIA / KLIA2 点对点';
+                    return `
+                        <div onclick="selectDestination('${key}'); goToStep(1); document.getElementById('customizer-section').scrollIntoView({behavior: 'smooth'});" class="cursor-pointer group relative rounded-2xl overflow-hidden shadow-md border-2 border-white h-40 sm:h-44 bg-slate-800">
+                            <img src="${item.bannerImg}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80';" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/25 to-transparent p-2.5 flex flex-col justify-end">
+                                <span class="text-[10px] font-bold ${key === 'airport' ? 'bg-sky-400' : 'bg-amber-400'} text-slate-950 px-2 py-0.5 rounded-full w-fit mb-1">${item.priceText}</span>
+                                <h3 class="text-white font-black text-xs sm:text-sm truncate">${item.name}</h3>
+                                <p class="text-slate-200 text-[10px] truncate">${firstSpots}</p>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            const stage1List = document.getElementById('stage1-packages-list');
+            if (stage1List) {
+                stage1List.innerHTML = keys.map(key => {
+                    const item = TOUR_DATA[key];
+                    const isSelected = state.destination === key;
+                    const spotsSummary = item.id === 'airport'
+                        ? '提供 KLIA 1 / KLIA 2 往返吉隆坡（KL范围）酒店或住家专车接送。吉隆坡范围 RM 200 起跳。'
+                        : (item.spots && item.spots.length > 0 ? item.spots.map(s => s.name).join('、') : item.subtitle);
+                    return `
+                        <div onclick="selectDestination('${key}')" id="dest-card-${key}" class="game-card ${isSelected ? 'selected-card' : ''} cursor-pointer rounded-2xl border-2 border-slate-200 bg-white overflow-hidden">
+                            <div class="grid sm:grid-cols-12">
+                                <div class="sm:col-span-4 h-36 sm:h-auto relative bg-slate-800">
+                                    <img src="${item.bannerImg}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80';" alt="${item.name}" class="w-full h-full object-cover">
+                                    <span class="absolute top-2.5 left-2.5 bg-slate-900/80 text-white text-[11px] font-bold px-2.5 py-1 rounded-lg backdrop-blur-sm">${item.icon} ${item.id === 'airport' ? '机场接机/送机' : '专属包车游'}</span>
+                                    <span id="dest-check-${key}" class="${isSelected ? '' : 'hidden'} absolute bottom-2.5 right-2.5 bg-amber-400 text-slate-950 text-xs font-black px-2.5 py-1 rounded-lg shadow">✓ 当前已选</span>
+                                </div>
+                                <div class="sm:col-span-8 p-4 flex flex-col justify-between">
+                                    <div class="flex justify-between items-start gap-2">
+                                        <div>
+                                            <h4 class="text-lg font-black text-slate-900">${item.name}</h4>
+                                            <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                                                <strong>${item.id === 'airport' ? '点对点服务：' : '热门可选景点：'}</strong>${spotsSummary}
+                                            </p>
+                                        </div>
+                                        <div class="text-right shrink-0 bg-amber-50 border border-amber-200 px-3 py-1.5 rounded-xl">
+                                            <span class="text-[10px] text-amber-800 font-bold block">${item.priceLabel}</span>
+                                            <span class="text-xl font-black text-amber-600">${item.priceText}</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between mt-3 pt-2 border-t border-slate-100 text-xs text-slate-500">
+                                        <span class="flex items-center gap-1 font-medium text-slate-700"><i class="ph-fill ph-camera text-orange-500"></i> ${item.subtitle}</span>
+                                        <span class="text-amber-600 font-bold">点击选择此路线 ➔</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            const bottomGrid = document.getElementById('bottom-packages-grid');
+            if (bottomGrid) {
+                bottomGrid.innerHTML = keys.map(key => {
+                    const item = TOUR_DATA[key];
+                    const spotsHtml = item.id === 'airport'
+                        ? `
+                            <div class="flex items-start gap-2"><span class="bg-sky-100 text-sky-800 font-bold px-2 py-0.5 rounded shrink-0">接机</span><div><strong class="text-slate-900">KLIA / KLIA2 机场接机</strong><p class="text-slate-500">司导提前等候，直达您的酒店或住家</p></div></div>
+                            <div class="flex items-start gap-2"><span class="bg-sky-100 text-sky-800 font-bold px-2 py-0.5 rounded shrink-0">送机</span><div><strong class="text-slate-900">酒店 / 住家准时送机</strong><p class="text-slate-500">上门接您与行李，安心送达航站楼</p></div></div>
+                            <div class="flex items-start gap-2"><span class="bg-sky-100 text-sky-800 font-bold px-2 py-0.5 rounded shrink-0">收费</span><div><strong class="text-slate-900">吉隆坡 (KL) 范围 RM 200 起跳</strong><p class="text-slate-500">实际价格视具体接送地点与距离而定</p></div></div>
+                          `
+                        : (item.spots || []).slice(0, 5).map(s => `
+                            <div class="flex items-start gap-2">
+                                <span class="bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded shrink-0">${s.tag}</span>
+                                <div><strong class="text-slate-900">${s.name}</strong><p class="text-slate-500 line-clamp-1">${s.desc}</p></div>
+                            </div>
+                        `).join('');
+
+                    return `
+                        <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden flex flex-col justify-between shadow-lg hover:shadow-xl transition">
+                            <div>
+                                <div class="h-44 relative bg-slate-800">
+                                    <img src="${item.bannerImg}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80';" alt="${item.name}" class="w-full h-full object-cover">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/30 to-transparent p-4 flex justify-between items-end text-white">
+                                        <div>
+                                            <span class="text-[10px] font-bold ${item.badgeColor || 'bg-amber-500'} px-2.5 py-0.5 rounded-full">${item.id === 'airport' ? '接机 / 送机服务' : '景点自由选 · 含跟拍'}</span>
+                                            <h3 class="text-lg font-black mt-1">${item.name}</h3>
+                                        </div>
+                                        <div class="text-right">
+                                            <span class="text-[10px] opacity-80 block">${item.priceLabel}</span>
+                                            <span class="text-xl font-black text-amber-300">${item.priceText}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-4 space-y-2.5 text-xs">
+                                    <p class="text-slate-500 font-medium">✨ ${item.id === 'airport' ? '点对点安心接送服务：' : '可自由勾选的景点：'}</p>
+                                    ${spotsHtml}
+                                </div>
+                            </div>
+                            <div class="p-4 pt-0">
+                                <button onclick="selectDestination('${key}'); goToStep(3); document.getElementById('customizer-section').scrollIntoView({behavior: 'smooth'});" class="w-full py-2.5 rounded-xl bg-amber-50 hover:bg-amber-400 text-amber-800 hover:text-slate-950 border border-amber-300 font-black text-xs transition">
+                                    立即定制此行程 (${item.priceText}) ➔
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+        }
+
+        function goToStep(step) {
+            state.currentStep = step;
+            for (let i = 1; i <= 4; i++) {
+                const panel = document.getElementById(`step-panel-${i}`);
+                const tab = document.getElementById(`step-tab-${i}`);
+                const badge = tab.querySelector('span:first-child');
+
+                if (i === step) {
+                    panel.classList.remove('hidden');
+                    tab.className = "step-tab flex flex-col sm:flex-row items-center justify-center gap-2 p-2.5 sm:p-3.5 rounded-2xl border-2 border-amber-500 bg-amber-50/90 text-slate-900 text-left transition shadow-md";
+                    badge.className = "w-6 h-6 rounded-full bg-amber-500 text-white font-black text-xs flex items-center justify-center shrink-0";
+                } else if (i < step) {
+                    panel.classList.add('hidden');
+                    tab.className = "step-tab flex flex-col sm:flex-row items-center justify-center gap-2 p-2.5 sm:p-3.5 rounded-2xl border-2 border-emerald-400 bg-emerald-50/70 text-emerald-900 text-left transition";
+                    badge.className = "w-6 h-6 rounded-full bg-emerald-500 text-white font-black text-xs flex items-center justify-center shrink-0";
+                } else {
+                    panel.classList.add('hidden');
+                    tab.className = "step-tab flex flex-col sm:flex-row items-center justify-center gap-2 p-2.5 sm:p-3.5 rounded-2xl border-2 border-slate-200 bg-white text-slate-500 text-left transition";
+                    badge.className = "w-6 h-6 rounded-full bg-slate-200 text-slate-700 font-black text-xs flex items-center justify-center shrink-0";
+                }
+            }
+
+            const progressMap = { 1: '25%', 2: '50%', 3: '75%', 4: '100% 准备出发!' };
+            document.getElementById('progress-text').innerText = `完成度: ${progressMap[step]}`;
+            updateSummary();
+        }
+
+        function selectDestination(destKey) {
+            state.destination = destKey;
+            Object.keys(TOUR_DATA).forEach(key => {
+                const card = document.getElementById(`dest-card-${key}`);
+                const checkBadge = document.getElementById(`dest-check-${key}`);
+                if (card) {
+                    if (key === destKey) {
+                        card.classList.add('selected-card');
+                        if (checkBadge) checkBadge.classList.remove('hidden');
+                    } else {
+                        card.classList.remove('selected-card');
+                        if (checkBadge) checkBadge.classList.add('hidden');
+                    }
+                }
+            });
+
+            const tourContainer = document.getElementById('tour-spots-container');
+            const airportContainer = document.getElementById('airport-transfer-container');
+            const step2NextBtnText = document.getElementById('step2-next-btn-text');
+
+            if (destKey === 'airport') {
+                tourContainer.classList.add('hidden');
+                airportContainer.classList.remove('hidden');
+                if (step2NextBtnText) step2NextBtnText.innerText = '下一步：填写接机/送机地点';
+            } else {
+                tourContainer.classList.remove('hidden');
+                airportContainer.classList.add('hidden');
+                if (step2NextBtnText) step2NextBtnText.innerText = '下一步：自由勾选想去的景点';
+                renderAttractions();
+            }
+
+            updateSummary();
+            showToast(`已选择：${TOUR_DATA[destKey].name}`);
+        }
+
+        function selectAirportDirection(dirText) {
+            state.airportDirection = dirText;
+            const pickupCard = document.getElementById('airport-dir-pickup');
+            const dropoffCard = document.getElementById('airport-dir-dropoff');
+            if (dirText.includes('接机')) {
+                pickupCard.classList.add('selected-car');
+                dropoffCard.classList.remove('selected-car');
+            } else {
+                dropoffCard.classList.add('selected-car');
+                pickupCard.classList.remove('selected-car');
+            }
+            updateSummary();
+            showToast(`已选择：${dirText.split(' ')[0]}`);
+        }
+
+        function selectCarModel(modelName) {
+            state.carModel = modelName;
+            const serenaCard = document.getElementById('car-card-serena');
+            const alzaCard = document.getElementById('car-card-alza');
+            const serenaBadge = document.getElementById('car-badge-serena');
+            const alzaBadge = document.getElementById('car-badge-alza');
+
+            if (modelName.includes('Serena')) {
+                serenaCard.classList.add('selected-car');
+                alzaCard.classList.remove('selected-car');
+                serenaBadge.className = "text-xs font-black px-2.5 py-1 rounded-lg bg-sky-600 text-white";
+                serenaBadge.innerText = "✓ 已选";
+                alzaBadge.className = "text-xs font-bold px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600";
+                alzaBadge.innerText = "点击选择";
+            } else {
+                alzaCard.classList.add('selected-car');
+                serenaCard.classList.remove('selected-car');
+                alzaBadge.className = "text-xs font-black px-2.5 py-1 rounded-lg bg-sky-600 text-white";
+                alzaBadge.innerText = "✓ 已选";
+                serenaBadge.className = "text-xs font-bold px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600";
+                serenaBadge.innerText = "点击选择";
+            }
+            updateSummary();
+            showToast(`已切换专车：${modelName}`);
+        }
+
+        function changePax(type, delta) {
+            if (type === 'adults') {
+                state.adults = Math.max(1, Math.min(40, state.adults + delta));
+                document.getElementById('adults-count').innerText = state.adults;
+            } else {
+                state.children = Math.max(0, Math.min(20, state.children + delta));
+                document.getElementById('children-count').innerText = state.children;
+            }
+            updateSummary();
+        }
+
+        function renderAttractions() {
+            const tour = TOUR_DATA[state.destination];
+            const grid = document.getElementById('attractions-grid');
+            if (!grid || !tour) return;
+            grid.innerHTML = '';
+
+            if (!tour.spots || tour.spots.length === 0) {
+                grid.innerHTML = `<div class="col-span-2 text-center py-6 text-xs text-slate-500 bg-slate-50 rounded-2xl border border-slate-200">此配套暂未添加预设景点，您可以在下方输入框自由填写想去的地方！</div>`;
+                return;
+            }
+
+            tour.spots.forEach((spot, index) => {
+                const isSelected = spot.selected;
+                const card = document.createElement('div');
+                card.onclick = () => toggleAttraction(index);
+                card.className = `game-card cursor-pointer rounded-2xl border-2 overflow-hidden flex flex-col justify-between transition ${
+                    isSelected 
+                    ? 'selected-card border-amber-500 bg-white' 
+                    : 'border-slate-200 bg-slate-50 opacity-70 hover:opacity-100'
+                }`;
+
+                card.innerHTML = `
+                    <div>
+                        <div class="h-32 relative overflow-hidden bg-slate-800">
+                            <img src="${spot.img}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=600&q=80';" alt="${spot.name}" class="w-full h-full object-cover">
+                            <span class="absolute top-2 left-2 text-[10px] font-black px-2.5 py-0.5 rounded-md bg-slate-900/80 text-amber-300 backdrop-blur-sm">
+                                ${spot.tag}
+                            </span>
+                            <span class="absolute top-2 right-2 text-[10px] px-2.5 py-0.5 rounded-md shadow ${isSelected ? 'bg-amber-400 text-slate-950 font-black' : 'bg-white/90 text-slate-700 font-bold'}">
+                                ${isSelected ? '✓ 已选想去' : '+ 点击加入'}
+                            </span>
+                        </div>
+                        <div class="p-3">
+                            <h4 class="font-black text-sm text-slate-900 flex items-center gap-1 truncate">
+                                <span>${spot.emoji}</span>
+                                <span class="truncate">${spot.name}</span>
+                            </h4>
+                            <p class="text-xs text-slate-600 mt-1 line-clamp-2">${spot.desc}</p>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function toggleAttraction(index) {
+            const tour = TOUR_DATA[state.destination];
+            tour.spots[index].selected = !tour.spots[index].selected;
+            renderAttractions();
+            updateSummary();
+        }
+
+        function toggleAllAttractions(selectAll) {
+            const tour = TOUR_DATA[state.destination];
+            if (!tour.spots) return;
+            tour.spots.forEach(s => s.selected = selectAll);
+            renderAttractions();
+            updateSummary();
+            showToast(selectAll ? '已为您勾上全部热门景点！' : '已清空景点，请点击卡片自由勾选！');
+        }
+
+        function updateSummary() {
+            const tour = TOUR_DATA[state.destination];
+            if (!tour) return;
+
+            const dateEl = document.getElementById('travel-date');
+            state.date = dateEl && dateEl.value ? dateEl.value : '待定';
+            const locEl = document.getElementById('pickup-location');
+            state.pickupLocation = locEl ? locEl.value.trim() : '';
+            const customEl = document.getElementById('custom-spots');
+            state.customSpots = customEl ? customEl.value.trim() : '';
+            const nameEl = document.getElementById('customer-name');
+            state.customerName = nameEl ? nameEl.value.trim() : '';
+            const vibeEl = document.getElementById('trip-vibe');
+            state.tripVibe = vibeEl ? vibeEl.value : '轻松休闲，不赶时间';
+
+            const termEl = document.getElementById('airport-terminal');
+            if (termEl) state.airportTerminal = termEl.value;
+            const lugEl = document.getElementById('airport-luggage');
+            if (lugEl) state.airportLuggage = lugEl.value.trim();
+            const addrEl = document.getElementById('airport-destination-address');
+            if (addrEl) state.airportDestAddress = addrEl.value.trim();
+            const noteEl = document.getElementById('airport-extra-note');
+            if (noteEl) state.airportExtraNote = noteEl.value.trim();
+
+            document.getElementById('summary-icon').innerText = tour.icon;
+            document.getElementById('summary-title').innerText = tour.name;
+            document.getElementById('summary-price-label').innerText = tour.priceLabel;
+            document.getElementById('summary-price').innerText = tour.priceText;
+            document.getElementById('summary-duration').innerText = tour.durationText;
+            document.getElementById('summary-banner-img').src = tour.bannerImg;
+            document.getElementById('summary-car').innerText = state.carModel;
+
+            const totalPax = state.adults + state.children;
+            document.getElementById('total-pax-badge').innerText = totalPax;
+            const perPerson = Math.round(tour.price / Math.max(1, totalPax));
+            document.getElementById('per-person-cost').innerText = state.destination === 'airport'
+                ? `RM ${perPerson}起 /人`
+                : `RM ${perPerson} /人`;
+
+            const paxStr = state.children > 0 
+                ? `${state.adults}大 ${state.children}小 (共${totalPax}人)` 
+                : `${state.adults}位大人`;
+            document.getElementById('summary-pax').innerText = paxStr;
+
+            const timeline = document.getElementById('live-timeline');
+            const timelineHeader = document.getElementById('timeline-header-label');
+            timeline.innerHTML = '';
+
+            if (state.destination === 'airport') {
+                document.getElementById('summary-spots-count').innerText = state.airportDirection.includes('接机') ? '机场接机' : '机场送机';
+                if (timelineHeader) timelineHeader.innerText = '✈️ 您的机场专车接送信息：';
+                timeline.innerHTML = `
+                    <div class="bg-sky-50 border border-sky-200 p-3 rounded-xl space-y-1.5 text-xs">
+                        <div class="font-black text-sky-900">${state.airportDirection}</div>
+                        <div class="text-slate-700">🏢 <strong>航站楼：</strong>${state.airportTerminal}</div>
+                        <div class="text-slate-700">📍 <strong>接送地点：</strong>${state.airportDestAddress || state.pickupLocation || '请填写具体酒店/住家地点'}</div>
+                        ${state.airportLuggage ? `<div class="text-slate-700">🧳 <strong>行李/航班：</strong>${state.airportLuggage}</div>` : ''}
+                        <div class="text-[11px] text-amber-700 font-bold pt-1">💡 吉隆坡 (KL) 范围 RM 200 起跳，视具体地点报价</div>
+                    </div>
+                `;
+            } else {
+                if (timelineHeader) timelineHeader.innerText = '🗺️ 您挑选的打卡景点：';
+                const selectedSpots = (tour.spots || []).filter(s => s.selected);
+                document.getElementById('summary-spots-count').innerText = `${selectedSpots.length} 个景点`;
+
+                if (selectedSpots.length === 0) {
+                    timeline.innerHTML = `<div class="text-xs text-slate-500 py-4 text-center bg-slate-50 rounded-xl border border-slate-200">尚未勾选景点，可由摄影师司导 Jack 为您推荐安排！</div>`;
+                } else {
+                    selectedSpots.forEach((spot, idx) => {
+                        const item = document.createElement('div');
+                        item.className = 'timeline-item flex items-center gap-3 bg-slate-50 border border-slate-200 px-3 py-2 rounded-xl';
+                        item.innerHTML = `
+                            <div class="relative timeline-dot w-6 h-6 rounded-full bg-amber-500 text-white font-black text-xs flex items-center justify-center shrink-0">
+                                ${idx + 1}
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs font-bold text-slate-900 truncate">${spot.emoji} ${spot.name}</span>
+                                    <span class="text-[10px] bg-amber-100 text-amber-800 px-2 py-0.5 rounded font-bold ml-2 shrink-0">${spot.tag}</span>
+                                </div>
+                            </div>
+                        `;
+                        timeline.appendChild(item);
+                    });
+                }
+            }
+
+            const message = buildWhatsAppMessage();
+            document.getElementById('whatsapp-preview-box').innerText = message;
+        }
+
+        function buildWhatsAppMessage() {
+            const tour = TOUR_DATA[state.destination];
+            const totalPax = state.adults + state.children;
+
+            if (state.destination === 'airport') {
+                let msg = `你好 Jack (${SITE_CONFIG.brandTitle})！👋 我在网站上预约了【吉隆坡机场专车接送服务】，想咨询预订：\n\n`;
+                msg += `✈️ 【接送类型】：${state.airportDirection}\n`;
+                msg += `💰 【参考价格】：${tour.priceText} (KL范围，视具体地点确认)\n`;
+                msg += `🏢 【航站楼】：${state.airportTerminal}\n`;
+                msg += `🚗 【所选车型】：${state.carModel}\n`;
+                if (state.customerName) {
+                    msg += `👤 【乘客称呼】：${state.customerName}\n`;
+                }
+                msg += `👨‍👩‍👧‍👦 【乘车人数】：${state.adults} 大人` + (state.children > 0 ? ` + ${state.children} 小孩` : '') + ` (共 ${totalPax} 人)\n`;
+                if (state.date && state.date !== '待定') {
+                    msg += `📅 【用车日期】：${state.date}\n`;
+                }
+                msg += `📍 【具体接送地点】：${state.airportDestAddress || state.pickupLocation || '待发定位确认'}\n`;
+                if (state.airportLuggage) {
+                    msg += `🧳 【行李与航班】：${state.airportLuggage}\n`;
+                }
+                if (state.airportExtraNote) {
+                    msg += `➕ 【额外接送备注】：${state.airportExtraNote}\n`;
+                }
+                msg += `\n请问可以安排接送吗？请帮我确认这个地点的价格，谢谢！🙏`;
+                return msg;
+            }
+
+            const selectedSpots = (tour.spots || []).filter(s => s.selected);
+            const spotsList = selectedSpots.length > 0
+                ? selectedSpots.map((s, idx) => `   ${idx + 1}. ${s.name}`).join('\n')
+                : '   (请 Jack 帮我推荐顺路好玩好拍的景点)';
+
+            let msg = `你好 Jack (${SITE_CONFIG.brandTitle})！👋 我在网站上定制了【专属包车游 (含30年摄影师司导跟拍与讲解)】，想咨询预订：\n\n`;
+            msg += `🚐 【所选路线】：${tour.name}\n`;
+            msg += `💰 【配套价格】：${tour.priceText}\n`;
+            msg += `🚗 【所选车型】：${state.carModel}\n`;
+            msg += `📸 【专属服务】：30年经验摄影师司导帮拍照 + 景点介绍\n`;
+            if (state.customerName) {
+                msg += `👤 【乘客称呼】：${state.customerName}\n`;
+            }
+            msg += `👨‍👩‍👧‍👦 【出游人数】：${state.adults} 大人` + (state.children > 0 ? ` + ${state.children} 小孩` : '') + ` (共 ${totalPax} 人)\n`;
+            if (state.date && state.date !== '待定') {
+                msg += `📅 【出发日期】：${state.date}\n`;
+            }
+            if (state.pickupLocation) {
+                msg += `🏨 【上车地点】：${state.pickupLocation}\n`;
+            }
+            msg += `🎒 【旅拍与偏好】：${state.tripVibe}\n\n`;
+            msg += `📍 【我想去的景点清单 (共${selectedSpots.length}个)】：\n${spotsList}\n`;
+
+            if (state.customSpots) {
+                msg += `\n➕ 【额外想去/接送地点备注】：${state.customSpots}\n`;
+            }
+
+            msg += `\n请问有车位吗？期待您的回复，谢谢！🙏`;
+            return msg;
+        }
+
+        function sendToWhatsApp() {
+            updateSummary();
+            const message = buildWhatsAppMessage();
+            const encodedMsg = encodeURIComponent(message);
+            const waUrl = `https://wa.me/${SITE_CONFIG.waPhone}?text=${encodedMsg}`;
+            window.open(waUrl, '_blank');
+        }
+
+        function copyForWeChat() {
+            copyItineraryText(true);
+            openWeChatModal();
+        }
+
+        function copyItineraryText(silent) {
+            updateSummary();
+            const text = buildWhatsAppMessage();
+            const tempInput = document.createElement('textarea');
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            if (!silent) {
+                showToast('行程单已成功复制！可直接去微信或 WhatsApp 粘贴发送给 Jack');
+            }
+        }
+
+        function copyWeChatId() {
+            const tempInput = document.createElement('textarea');
+            tempInput.value = SITE_CONFIG.displayPhone.replace(/-/g, '');
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            showToast(`已复制 Jack 号码：${SITE_CONFIG.displayPhone}`);
+        }
+
+        function openWeChatModal() {
+            copyItineraryText(true);
+            const modal = document.getElementById('wechat-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+        function closeWeChatModal() {
+            const modal = document.getElementById('wechat-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function openPosterModal() {
+            const tour = TOUR_DATA[state.destination];
+            if (state.destination === 'airport') {
+                showToast('请在左侧填写您的机场接送具体地点！');
+                return;
+            }
+            document.getElementById('modal-title').innerText = `${tour.icon} ${tour.name} (${tour.priceText})`;
+            const body = document.getElementById('modal-body');
+            body.innerHTML = (tour.spots || []).map((s, i) => `
+                <div class="flex items-start gap-3 p-3 rounded-2xl bg-slate-50 border border-slate-200">
+                    <img src="${s.img}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=600&q=80';" alt="${s.name}" class="w-16 h-16 rounded-xl object-cover shrink-0">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-[11px] font-black bg-amber-100 text-amber-800 px-2 py-0.5 rounded">${s.tag}</span>
+                            <span class="font-black text-slate-900">${i + 1}. ${s.name}</span>
+                        </div>
+                        <p class="text-xs text-slate-600 mt-1">${s.desc}</p>
+                    </div>
+                </div>
+            `).join('');
+            const modal = document.getElementById('poster-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+        function closePosterModal() {
+            const modal = document.getElementById('poster-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // ==========================================
+        // 可视化管理后台 (CMS) 完整逻辑
+        // ==========================================
+        let isAdminLoggedIn = false;
+        let tempNewPkgImg = 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80';
+
+        function openAdminModal() {
+            const modal = document.getElementById('admin-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            if (isAdminLoggedIn) {
+                populateAdminFields();
+            } else {
+                document.getElementById('admin-password-input').value = '';
+            }
+        }
+
+        function closeAdminModal() {
+            const modal = document.getElementById('admin-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function verifyAdminLogin() {
+            const pwd = document.getElementById('admin-password-input').value.trim();
+            if (pwd === SITE_CONFIG.adminPassword) {
+                isAdminLoggedIn = true;
+                document.getElementById('admin-login-view').classList.add('hidden');
+                document.getElementById('admin-workspace-view').classList.remove('hidden');
+                document.getElementById('admin-workspace-view').classList.add('flex');
+                populateAdminFields();
+                showToast('密码正确，已进入管理后台！');
+            } else {
+                showToast('密码错误，请重新输入！');
+            }
+        }
+
+        function switchAdminTab(tabName) {
+            ['general', 'images', 'packages', 'publish'].forEach(t => {
+                const panel = document.getElementById(`admin-panel-${t}`);
+                const tab = document.getElementById(`admin-tab-${t}`);
+                if (t === tabName) {
+                    panel.classList.remove('hidden');
+                    tab.className = "admin-tab px-4 py-2.5 text-xs sm:text-sm font-black rounded-t-xl bg-white border-t border-x border-slate-200 text-amber-600";
+                } else {
+                    panel.classList.add('hidden');
+                    tab.className = "admin-tab px-4 py-2.5 text-xs sm:text-sm font-bold rounded-t-xl text-slate-500 hover:text-slate-900";
+                }
+            });
+        }
+
+        function populateAdminFields() {
+            document.getElementById('edit-brand-title').value = SITE_CONFIG.brandTitle;
+            document.getElementById('edit-hero-subtitle').value = SITE_CONFIG.heroSubtitle;
+            document.getElementById('edit-display-phone').value = SITE_CONFIG.displayPhone;
+            document.getElementById('edit-wa-phone').value = SITE_CONFIG.waPhone;
+            document.getElementById('edit-hero-desc').value = SITE_CONFIG.heroDesc;
+            document.getElementById('edit-admin-password').value = SITE_CONFIG.adminPassword;
+
+            document.getElementById('admin-preview-logo').src = SITE_CONFIG.logoImg;
+            document.getElementById('admin-preview-serena').src = SITE_CONFIG.serenaImg;
+            document.getElementById('admin-preview-alza').src = SITE_CONFIG.alzaImg;
+
+            renderAdminPackagesList();
+        }
+
+        function setSiteFont(fontStr) {
+            SITE_CONFIG.fontFamily = fontStr;
+            applySiteConfigToUI();
+            showToast('字体已实时切换！记得点击右下角保存');
+        }
+
+        function compressAndReadImage(file, callback) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    const maxW = 900;
+                    let w = img.width;
+                    let h = img.height;
+                    if (w > maxW) {
+                        h = Math.round((h * maxW) / w);
+                        w = maxW;
+                    }
+                    canvas.width = w;
+                    canvas.height = h;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, w, h);
+                    callback(canvas.toDataURL('image/jpeg', 0.82));
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function handleImageUpload(event, targetType) {
+            const file = event.target.files[0];
+            if (!file) return;
+            compressAndReadImage(file, (dataUrl) => {
+                if (targetType === 'logo') {
+                    SITE_CONFIG.logoImg = dataUrl;
+                    document.getElementById('admin-preview-logo').src = dataUrl;
+                } else if (targetType === 'serena') {
+                    SITE_CONFIG.serenaImg = dataUrl;
+                    document.getElementById('admin-preview-serena').src = dataUrl;
+                } else if (targetType === 'alza') {
+                    SITE_CONFIG.alzaImg = dataUrl;
+                    document.getElementById('admin-preview-alza').src = dataUrl;
+                }
+                applySiteConfigToUI();
+                showToast('照片已替换成功！');
+            });
+        }
+
+        function handleNewPkgImage(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            compressAndReadImage(file, (dataUrl) => {
+                tempNewPkgImg = dataUrl;
+                document.getElementById('new-pkg-img-label').innerText = '✓ 封面图已就绪';
+                showToast('新配套封面图已上传！');
+            });
+        }
+
+        function renderAdminPackagesList() {
+            const container = document.getElementById('admin-packages-list');
+            container.innerHTML = Object.keys(TOUR_DATA).map(key => {
+                const pkg = TOUR_DATA[key];
+                const spotsListHtml = pkg.id === 'airport'
+                    ? `<p class="text-[11px] text-sky-700">机场接送服务模块（自动包含接机/送机与地点填写）</p>`
+                    : `
+                        <div class="space-y-1.5 pt-2 border-t border-slate-100">
+                            <span class="text-[11px] font-bold text-slate-500 block">此配套下的可选景点 (${(pkg.spots || []).length}个)：</span>
+                            <div class="flex flex-wrap gap-1.5">
+                                ${(pkg.spots || []).map((s, idx) => `
+                                    <span class="inline-flex items-center gap-1 bg-slate-100 text-slate-800 text-[11px] px-2.5 py-1 rounded-lg border border-slate-200">
+                                        ${s.emoji} ${s.name}
+                                        <button type="button" onclick="removeSpotFromPackage('${key}', ${idx})" class="text-rose-500 hover:text-rose-700 font-black ml-1">×</button>
+                                    </span>
+                                `).join('')}
+                            </div>
+                            <div class="flex gap-2 pt-1">
+                                <input type="text" id="add-spot-input-${key}" placeholder="输入新景点名称 (如: 极乐洞 / 榴莲园)" class="flex-1 border border-slate-300 rounded-lg px-2.5 py-1 text-xs">
+                                <button type="button" onclick="addSpotToPackage('${key}')" class="bg-amber-100 hover:bg-amber-200 text-amber-900 font-bold text-xs px-3 py-1 rounded-lg">+ 加景点</button>
+                            </div>
+                        </div>
+                    `;
+
+                return `
+                    <div class="border border-slate-200 rounded-2xl p-4 bg-white space-y-3 shadow-sm">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                            <div class="flex items-center gap-3">
+                                <img src="${pkg.bannerImg}" class="w-14 h-14 rounded-xl object-cover border border-slate-200 shrink-0">
+                                <div class="space-y-1">
+                                    <div class="flex items-center gap-2">
+                                        <input type="text" value="${pkg.name}" onchange="TOUR_DATA['${key}'].name = this.value" class="font-black text-sm text-slate-900 border-b border-dashed border-slate-300 focus:border-amber-500 outline-none">
+                                        <label class="cursor-pointer text-[11px] bg-slate-100 hover:bg-slate-200 text-slate-700 px-2 py-0.5 rounded font-bold">
+                                            换封面图
+                                            <input type="file" accept="image/*" class="hidden" onchange="changePackageBanner(event, '${key}')">
+                                        </label>
+                                    </div>
+                                    <input type="text" value="${pkg.subtitle}" onchange="TOUR_DATA['${key}'].subtitle = this.value" class="text-xs text-slate-500 w-full border-b border-dashed border-slate-200 outline-none">
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="flex items-center gap-1 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-xl">
+                                    <span class="text-xs font-bold text-amber-800">RM</span>
+                                    <input type="number" value="${pkg.price}" onchange="updatePackagePrice('${key}', this.value)" class="w-16 font-black text-sm text-amber-700 bg-transparent outline-none">
+                                </div>
+                                ${!['genting', 'ipoh', 'melaka', 'airport'].includes(key) ? `
+                                    <button type="button" onclick="deleteCustomPackage('${key}')" class="text-xs bg-rose-50 hover:bg-rose-100 text-rose-600 px-2.5 py-1.5 rounded-xl font-bold">删除</button>
+                                ` : ''}
+                            </div>
+                        </div>
+                        ${spotsListHtml}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function updatePackagePrice(key, newVal) {
+            const num = parseInt(newVal, 10) || 0;
+            TOUR_DATA[key].price = num;
+            TOUR_DATA[key].priceText = key === 'airport' ? `RM ${num}起` : `RM ${num}`;
+        }
+
+        function changePackageBanner(event, key) {
+            const file = event.target.files[0];
+            if (!file) return;
+            compressAndReadImage(file, (dataUrl) => {
+                TOUR_DATA[key].bannerImg = dataUrl;
+                renderAdminPackagesList();
+                showToast('配套封面照片已更换！');
+            });
+        }
+
+        function addSpotToPackage(key) {
+            const input = document.getElementById(`add-spot-input-${key}`);
+            const name = input.value.trim();
+            if (!name) return;
+            if (!TOUR_DATA[key].spots) TOUR_DATA[key].spots = [];
+            TOUR_DATA[key].spots.push({
+                id: 'spot_' + Date.now(),
+                tag: '新增推荐',
+                name: name,
+                desc: '私人包车精选打卡站 (Jack 摄影师帮您拍美照)',
+                emoji: '📍',
+                img: TOUR_DATA[key].bannerImg,
+                selected: true
+            });
+            input.value = '';
+            renderAdminPackagesList();
+            showToast(`已添加新景点：${name}`);
+        }
+
+        function removeSpotFromPackage(key, idx) {
+            TOUR_DATA[key].spots.splice(idx, 1);
+            renderAdminPackagesList();
+            showToast('已移除该景点');
+        }
+
+        function addNewPackage() {
+            const name = document.getElementById('new-pkg-name').value.trim();
+            const price = parseInt(document.getElementById('new-pkg-price').value, 10);
+            const icon = document.getElementById('new-pkg-icon').value.trim() || '🌴';
+            const subtitle = document.getElementById('new-pkg-subtitle').value.trim() || '私人专车 · 30年摄影师司导跟拍';
+
+            if (!name || !price) {
+                showToast('请填写新配套的名称和价格！');
+                return;
+            }
+
+            const newId = 'pkg_' + Date.now();
+            TOUR_DATA[newId] = {
+                id: newId,
+                name: name,
+                subtitle: subtitle,
+                price: price,
+                priceText: `RM ${price}`,
+                priceLabel: '包车配套价',
+                durationText: '免费摄影跟拍',
+                icon: icon,
+                badgeColor: 'bg-purple-600',
+                bannerImg: tempNewPkgImg,
+                spots: [
+                    { id: 's1_' + Date.now(), tag: '核心打卡', name: `${name} 精选景点`, desc: '私人专车直达，摄影师司导 Jack 全程跟拍', emoji: '📸', img: tempNewPkgImg, selected: true }
+                ]
+            };
+
+            document.getElementById('new-pkg-name').value = '';
+            document.getElementById('new-pkg-price').value = '';
+            document.getElementById('new-pkg-subtitle').value = '';
+            document.getElementById('new-pkg-img-label').innerText = '📷 上传配套封面照 (可选)';
+            renderAdminPackagesList();
+            showToast(`新配套【${name}】已添加！记得点击右下角保存`);
+        }
+
+        function deleteCustomPackage(key) {
+            delete TOUR_DATA[key];
+            renderAdminPackagesList();
+            showToast('已删除该自定义配套');
+        }
+
+        function saveAdminChanges() {
+            SITE_CONFIG.brandTitle = document.getElementById('edit-brand-title').value.trim() || "JACK CAR TRAVEL";
+            SITE_CONFIG.heroSubtitle = document.getElementById('edit-hero-subtitle').value.trim();
+            SITE_CONFIG.displayPhone = document.getElementById('edit-display-phone').value.trim();
+            SITE_CONFIG.waPhone = document.getElementById('edit-wa-phone').value.trim();
+            SITE_CONFIG.heroDesc = document.getElementById('edit-hero-desc').value.trim();
+            const newPwd = document.getElementById('edit-admin-password').value.trim();
+            if (newPwd) {
+                SITE_CONFIG.adminPassword = newPwd;
+            }
+
+            try {
+                localStorage.setItem('JCT_SITE_CONFIG', JSON.stringify(SITE_CONFIG));
+                localStorage.setItem('JCT_TOUR_DATA', JSON.stringify(TOUR_DATA));
+            } catch (e) {
+                console.warn('本地存储空间已满，建议直接导出 HTML 文件保存', e);
+            }
+
+            applySiteConfigToUI();
+            renderAllPackageLists();
+            renderAttractions();
+            updateSummary();
+            closeAdminModal();
+            showToast('✓ 所有修改与新密码已保存并立即生效！');
+        }
+
+        function exportUpdatedHtmlFile() {
+            saveAdminChanges();
+            let htmlContent = document.documentElement.outerHTML;
+            const configScript = `<script id="injected-cms-state">
+                try {
+                    localStorage.setItem('JCT_SITE_CONFIG', ${JSON.stringify(JSON.stringify(SITE_CONFIG))});
+                    localStorage.setItem('JCT_TOUR_DATA', ${JSON.stringify(JSON.stringify(TOUR_DATA))});
+                } catch(e) {}
+            <\/script>`;
+            htmlContent = htmlContent.replace('</head>', configScript + '\n</head>');
+            const blob = new Blob(['<!DOCTYPE html>\n' + htmlContent], { type: 'text/html;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'index.html';
+            link.click();
+            showToast('最新完整版 index.html 已开始下载！');
+        }
+
+        function resetAdminData() {
+            localStorage.removeItem('JCT_SITE_CONFIG');
+            localStorage.removeItem('JCT_TOUR_DATA');
+            location.reload();
+        }
+
+        function showToast(msg) {
+            const box = document.getElementById('toast-box');
+            document.getElementById('toast-msg').innerText = msg;
+            box.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                box.classList.add('translate-y-24', 'opacity-0');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

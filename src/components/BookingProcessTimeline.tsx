@@ -32,10 +32,10 @@ const PROCESS_STEPS = [
   },
   {
     number: '04',
-    title: '行程跟拍',
-    meta: '30年摄影司导随行',
+    title: '畅游讲解',
+    meta: '专人向导 · 跟拍另计收费',
     description:
-      '沿途生动讲解景点故事并带吃地道美食，资深摄影师司导主动找机位帮您与家人拍出质感大片。',
+      '司导沿途生动讲解景点故事、带吃地道老字号，节奏自由不催促；如需全程专业跟拍可额外加购收费。',
     icon: Camera,
   },
 ] as const;
@@ -60,7 +60,7 @@ export function BookingProcessTimeline({
               预约流程
             </h2>
             <p className="text-sm text-stone-600 mt-2 leading-relaxed">
-              从线上选定路线到专车上门接送与全程旅拍，每个环节透明直观，轻松开启马来西亚包车之旅。
+              从线上选定路线、确认档期到专车上门接送与贴心向导讲解，每个环节透明直观；如需全程专业跟拍可另外加购。
             </p>
           </div>
 

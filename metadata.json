@@ -1,6 +1,6 @@
 {
   "name": "JACK CAR TRAVEL 吉隆坡豪华包车网单",
-  "description": "吉隆坡私人专车包车旅游与机场接送预约网单：30年摄影师司导 Jack 全程跟拍与景点讲解，提供云顶、怡保、马六甲一日游及 KLIA/KLIA2 机场接送服务。",
+  "description": "吉隆坡私人专车包车旅游与机场接送预约网单：资深司导 Jack 提供专车接送、景点讲解与美食推荐，涵盖云顶、怡保、马六甲一日游及 KLIA/KLIA2 机场接送（如需全程专业跟拍可另外加购收费）。",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"

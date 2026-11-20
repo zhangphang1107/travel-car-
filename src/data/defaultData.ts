@@ -13,9 +13,9 @@ export const ASSET_PATHS = {
 
 export const DEFAULT_SITE_CONFIG: SiteConfig = {
   brandTitle: 'JACK CAR TRAVEL',
-  heroSubtitle: '包车旅游 · 专人讲解与旅拍',
+  heroSubtitle: '包车旅游 · 专人讲解自由行',
   heroDesc:
-    '主理人 Jack 拥有30年拍戏与专业摄影经验。包车出游不仅提供 Nissan Serena 与 Perodua Alza 舒适专车，还会全程为您讲解景点故事、带吃地道老字号，并亲自帮您与家人朋友拍出质感大片。涵盖云顶（RM500）、怡保（RM600）、马六甲（RM600）10小时自由行，以及吉隆坡机场专车接送（RM200起）。',
+    '提供 Nissan Serena 与 Perodua Alza 舒适私人专车，由熟悉本地风土的资深司导 Jack 全程接送、贴心讲解景点故事并带吃地道老字号。涵盖云顶（RM500）、怡保（RM600）、马六甲（RM600）10小时自由行及吉隆坡机场专车接送（RM200起）。注：标准包车不含全程跟拍，如需 30 年资深摄影师全程跟拍服务将另外收费。',
   displayPhone: '012-8331935',
   waPhone: '60128331935',
   adminPassword: '070871',
@@ -29,18 +29,18 @@ export const DEFAULT_TOUR_DATA: TourDataMap = {
   genting: {
     id: 'genting',
     name: '云顶高原一日游',
-    subtitle: '私人专车 · 30年摄影师司导跟拍',
+    subtitle: '私人专车 · 10小时自由行与讲解',
     price: 500,
     priceText: 'RM 500',
     priceLabel: '包车配套价',
-    durationText: '10小时 · 含跟拍',
+    durationText: '10小时自由包车',
     bannerImg: ASSET_PATHS.genting,
     spots: [
       {
         id: 'g1',
         tag: '必去打卡',
         name: '黑风洞 Batu Caves',
-        desc: '打卡272级彩虹阶梯与巨型金神像，Jack 找最佳机位帮您拍大片。',
+        desc: '打卡272级彩虹阶梯与巨型金神像，感受马来西亚著名文化地标。',
         img: ASSET_PATHS.genting,
         selected: true,
       },
@@ -89,11 +89,11 @@ export const DEFAULT_TOUR_DATA: TourDataMap = {
   ipoh: {
     id: 'ipoh',
     name: '怡保一日游：美食山城',
-    subtitle: '私人专车 · 30年摄影师司导跟拍',
+    subtitle: '私人专车 · 10小时自由行与讲解',
     price: 600,
     priceText: 'RM 600',
     priceLabel: '包车配套价',
-    durationText: '10小时 · 含跟拍',
+    durationText: '10小时自由包车',
     bannerImg: ASSET_PATHS.ipoh,
     spots: [
       {
@@ -132,7 +132,7 @@ export const DEFAULT_TOUR_DATA: TourDataMap = {
         id: 'i5',
         tag: '天然溶洞',
         name: '霹雳洞 / 极乐洞 Perak Cave',
-        desc: '壮丽石灰岩溶洞、红墙古庙阶梯与碧绿湖景，摄影师私藏取景地。',
+        desc: '壮丽石灰岩溶洞、红墙古庙阶梯与碧绿湖景，怡保极具代表性的自然与人文奇观。',
         img: ASSET_PATHS.ipohCave,
         selected: true,
       },
@@ -165,11 +165,11 @@ export const DEFAULT_TOUR_DATA: TourDataMap = {
   melaka: {
     id: 'melaka',
     name: '马六甲历史与美食之旅',
-    subtitle: '私人专车 · 30年摄影师司导跟拍',
+    subtitle: '私人专车 · 10小时自由行与讲解',
     price: 600,
     priceText: 'RM 600',
     priceLabel: '包车配套价',
-    durationText: '10小时 · 含跟拍',
+    durationText: '10小时自由包车',
     bannerImg: ASSET_PATHS.melaka,
     spots: [
       {
@@ -208,7 +208,7 @@ export const DEFAULT_TOUR_DATA: TourDataMap = {
         id: 'm5',
         tag: '海峡绝景',
         name: '水上清真寺 Melaka Straits Mosque',
-        desc: '矗立马六甲海峡之上的唯美建筑，Jack 帮您拍出日落海岸大片。',
+        desc: '矗立马六甲海峡之上的唯美海滨建筑，傍晚海风与落日景致迷人。',
         img: ASSET_PATHS.melaka,
         selected: true,
       },
@@ -236,9 +236,9 @@ export const DEFAULT_TOUR_DATA: TourDataMap = {
 };
 
 export const TRIP_VIBE_OPTIONS = [
-  '需要 Jack 摄影师帮忙多拍美照 + 景点介绍',
-  '轻松休闲，慢慢逛 + 家庭合照跟拍',
-  '吃货优先，专攻地道美食 + 打卡拍照',
+  '轻松休闲，慢慢逛不赶时间',
+  '吃货优先，专攻本地老字号地道美食',
+  '深度人文，喜欢听司导讲解历史与风土',
   '带长辈 / 小孩，少走路舒适游',
 ];
 

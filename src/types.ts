@@ -45,6 +45,7 @@ export interface BookingState {
   customSpots: string;
   customerName: string;
   tripVibe: string;
+  addPhotography: boolean;
   airportDirection: string;
   airportTerminal: string;
   airportLuggage: string;

@@ -32,8 +32,8 @@ import {
 } from './utils/booking';
 
 const STORAGE_KEYS = {
-  config: 'JCT_SITE_CONFIG_V2',
-  tours: 'JCT_TOUR_DATA_V2',
+  config: 'JCT_SITE_CONFIG_V3',
+  tours: 'JCT_TOUR_DATA_V3',
 };
 
 function loadInitialConfig(): SiteConfig {
@@ -78,6 +78,7 @@ export default function App() {
     customSpots: '',
     customerName: '',
     tripVibe: TRIP_VIBE_OPTIONS[0],
+    addPhotography: false,
     airportDirection: AIRPORT_DIRECTIONS.pickup,
     airportTerminal: AIRPORT_TERMINALS[0],
     airportLuggage: '',
@@ -240,7 +241,7 @@ export default function App() {
               href="#guide"
               className="hover:text-stone-900 transition-colors whitespace-nowrap shrink-0"
             >
-              摄影司导
+              司导介绍
             </a>
             <a
               href="#fleet"
@@ -280,7 +281,7 @@ export default function App() {
               <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
                 <div className="space-y-4">
                   <p className="text-xs sm:text-sm font-semibold text-amber-700">
-                    吉隆坡私人专车 · 30年摄影师司导免费跟拍
+                    吉隆坡私人专车 · 10小时自由行与专人讲解（全程跟拍另计收费）
                   </p>
                   <h1 className="text-[clamp(2rem,4vw,3.25rem)] font-extrabold tracking-tight leading-[1.12] text-stone-900 text-balance">
                     {config.brandTitle}
@@ -395,7 +396,7 @@ export default function App() {
           onStartBooking={() => handleJumpToCustomizer(booking.destination, 1)}
         />
 
-        {/* 30-Year Photographer Driver-Guide Spotlight */}
+        {/* Driver-Guide Spotlight & Optional Paid Photography Notice */}
         <section id="guide" className="bg-stone-950 text-stone-100 py-16 sm:py-20">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
@@ -403,39 +404,39 @@ export default function App() {
               <div className="lg:col-span-7 space-y-8">
                 <div className="space-y-3">
                   <p className="text-xs font-semibold text-amber-400 tracking-wide">
-                    不仅仅是包车司机 · 30年影视与摄影经验
+                    不仅仅是包车司机 · 本地资深司导服务
                   </p>
                   <h2 className="text-2xl sm:text-4xl font-bold text-white leading-tight text-balance">
-                    包车即享私人向导与资深摄影师全程跟拍
+                    安全舒适专车接送，带您地道玩转马来西亚
                   </h2>
                   <p className="text-sm sm:text-base text-stone-300 leading-relaxed max-w-2xl">
-                    出门旅游最怕遇到只顾开车的司机。主理人 Jack 拥有30年拍戏与专业摄影实战背景，带您畅游马来西亚的同时，主动帮您与家人朋友定格最美旅途记忆。
+                    出门旅游最怕遇到只顾开车、不熟悉路线的司机。主理人 Jack 熟悉吉隆坡及周边热门路线与地道老字号，同时拥有 30 年影视与摄影背景——标准包车含专车接送与景点讲解；若您有全程专业跟拍需求，可另行加购。
                   </p>
                 </div>
 
                 <div className="divide-y divide-stone-800 border-t border-b border-stone-800">
                   <div className="py-4 grid sm:grid-cols-12 gap-2 sm:gap-4 items-baseline">
                     <span className="sm:col-span-4 text-sm font-bold text-amber-400">
-                      01. 专业构图免费跟拍
+                      01. 贴心景点与美食向导
                     </span>
                     <p className="sm:col-span-8 text-sm text-stone-300 leading-relaxed">
-                      熟悉黑风洞彩虹阶梯、怡保霹雳洞与二奶巷、马六甲荷兰红屋最佳光线与打卡机位，无需麻烦路人拍照。
+                      沿途生动介绍马来西亚风土人情，带您品尝本地人认可的老字号白咖啡、芽菜鸡与娘惹美食，少走弯路。
                     </p>
                   </div>
                   <div className="py-4 grid sm:grid-cols-12 gap-2 sm:gap-4 items-baseline">
                     <span className="sm:col-span-4 text-sm font-bold text-amber-400">
-                      02. 贴心景点与美食向导
+                      02. 10小时行程自由不催促
                     </span>
                     <p className="sm:col-span-8 text-sm text-stone-300 leading-relaxed">
-                      沿途生动介绍马来西亚风土人情，带您品尝本地人认可的老字号白咖啡、芽菜鸡与娘惹美食。
+                      专车直达景点门口，逛够了、吃饱了再出发，长辈与小朋友都能轻松尽兴。
                     </p>
                   </div>
                   <div className="py-4 grid sm:grid-cols-12 gap-2 sm:gap-4 items-baseline">
                     <span className="sm:col-span-4 text-sm font-bold text-amber-400">
-                      03. 10小时行程自由不催促
+                      03. 全程跟拍（另外收费）
                     </span>
                     <p className="sm:col-span-8 text-sm text-stone-300 leading-relaxed">
-                      专车直达景点门口，拍够了、吃饱了再出发，长辈与小朋友都能轻松尽兴。
+                      标准包车配套不含全程跟拍。如需要拥有 30 年经验的 Jack 提供全程专业跟拍服务，可在网单第四步勾选加购，费用另行报价。
                     </p>
                   </div>
                 </div>
@@ -458,17 +459,17 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Right Photography Proof Frame */}
+              {/* Right Scenic Frame */}
               <div className="lg:col-span-5">
                 <div className="rounded-2xl overflow-hidden border border-stone-800 bg-stone-900">
                   <ResilientImage
                     src={ASSET_PATHS.ipohCave}
-                    alt="怡保霹雳洞实景旅拍取景地"
+                    alt="怡保霹雳洞实景景点"
                     className="w-full h-[380px] sm:h-[440px] object-cover"
                   />
                   <div className="px-5 py-4 border-t border-stone-800 flex items-center justify-between text-xs text-stone-400">
-                    <span>实景打卡机位 · 怡保霹雳洞 Gua Perak</span>
-                    <span className="text-amber-400 font-semibold">包车即赠跟拍</span>
+                    <span>精选实景景点 · 怡保霹雳洞 Gua Perak</span>
+                    <span className="text-amber-400 font-semibold">全程跟拍另计收费</span>
                   </div>
                 </div>
               </div>

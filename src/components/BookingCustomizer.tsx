@@ -130,7 +130,7 @@ export function BookingCustomizer({
                     第一步：选择包车路线或机场接送
                   </h3>
                   <p className="text-xs text-stone-500 mt-1">
-                    私人专车不拼团 · 10小时自由游 · 30年摄影师司导免费跟拍
+                    私人专车不拼团 · 10小时自由游与景点讲解（不含全程跟拍，如需跟拍另外收费）
                   </p>
                 </div>
               </div>
@@ -443,7 +443,7 @@ export function BookingCustomizer({
                         第三步：勾选想去的打卡景点
                       </h3>
                       <p className="text-xs text-stone-500 mt-1">
-                        不限制死板时间，司导 Jack 按最顺路路线带您游览并拍照
+                        不限制死板时间，司导 Jack 按最顺路路线带您游览并讲解当地特色
                       </p>
                     </div>
                     <div className="flex items-center gap-2 shrink-0">
@@ -730,7 +730,7 @@ export function BookingCustomizer({
                     htmlFor="trip-vibe"
                     className="block text-xs font-semibold text-stone-700 mb-1.5"
                   >
-                    旅拍与行程偏好
+                    行程偏好
                   </label>
                   <select
                     id="trip-vibe"
@@ -746,6 +746,41 @@ export function BookingCustomizer({
                   </select>
                 </div>
               </div>
+
+              {/* Optional Paid Photography Add-on */}
+              {!isAirport && (
+                <label
+                  htmlFor="add-photography"
+                  className={`flex items-start gap-3 p-4 rounded-xl border cursor-pointer transition-colors ${
+                    booking.addPhotography
+                      ? 'border-amber-600 bg-amber-50/50'
+                      : 'border-stone-200 bg-stone-50/60 hover:border-stone-300'
+                  }`}
+                >
+                  <input
+                    id="add-photography"
+                    type="checkbox"
+                    checked={booking.addPhotography}
+                    onChange={(e) =>
+                      onUpdateBooking({ addPhotography: e.target.checked })
+                    }
+                    className="mt-0.5 w-4 h-4 accent-amber-600 rounded shrink-0"
+                  />
+                  <div className="text-xs space-y-1">
+                    <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
+                      <span className="font-bold text-stone-900">
+                        加购：全程专业跟拍服务
+                      </span>
+                      <span className="font-semibold text-amber-700">
+                        另外收费 · 需另行报价
+                      </span>
+                    </div>
+                    <p className="text-stone-600 leading-relaxed">
+                      标准包车配套不含全程跟拍。如需 30 年资深摄影师 Jack 提供全程专业跟拍，请勾选此项，发送网单后将为您单独报价。
+                    </p>
+                  </div>
+                </label>
+              )}
 
               {/* Order text preview */}
               <div className="bg-stone-50 border border-stone-200 rounded-xl p-4 space-y-2.5">
@@ -835,10 +870,14 @@ export function BookingCustomizer({
                 </div>
                 <div>
                   <span className="text-stone-500 flex items-center gap-1">
-                    <Camera className="w-3.5 h-3.5" /> 附赠服务
+                    <Camera className="w-3.5 h-3.5" /> 全程跟拍
                   </span>
                   <span className="font-bold text-amber-700 mt-1 block">
-                    {isAirport ? '专车准点直达' : '摄影师免费跟拍'}
+                    {isAirport
+                      ? '专车准点直达'
+                      : booking.addPhotography
+                        ? '已加购(另收费)'
+                        : '不含(可另付费)'}
                   </span>
                 </div>
                 <div>

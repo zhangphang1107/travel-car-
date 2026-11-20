@@ -56,12 +56,16 @@ export function buildBookingMessage(
       : '   （请 Jack 帮我推荐顺路好玩好拍的景点）';
 
   const lines = [
-    `你好 Jack (${config.brandTitle})！我在预约网单上定制了【专属包车游 · 含30年摄影师司导跟拍与讲解】，想咨询预订：`,
+    `你好 Jack (${config.brandTitle})！我在预约网单上定制了【吉隆坡专属包车游】，想咨询预订：`,
     '',
     `【所选路线】：${tour.name}`,
-    `【配套价格】：${tour.priceText}`,
+    `【配套价格】：${tour.priceText}（不含全程跟拍）`,
     `【所选车型】：${state.carModel}`,
-    `【专属服务】：30年摄影师经验司导帮拍照 + 景点讲解`,
+    `【全程跟拍】：${
+      state.addPhotography
+        ? '需要加购全程专业跟拍（另外收费，请帮我报价）'
+        : '不需要（仅标准包车接送 + 景点讲解）'
+    }`,
   ];
   if (state.customerName.trim()) {
     lines.push(`【乘客称呼】：${state.customerName.trim()}`);
@@ -73,7 +77,7 @@ export function buildBookingMessage(
   if (state.pickupLocation.trim()) {
     lines.push(`【上车地点】：${state.pickupLocation.trim()}`);
   }
-  lines.push(`【旅拍与偏好】：${state.tripVibe}`);
+  lines.push(`【行程偏好】：${state.tripVibe}`);
   lines.push('', `【我想去的景点清单 (共${selectedSpots.length}个)】：`, spotsList);
 
   if (state.customSpots.trim()) {

@@ -134,18 +134,18 @@ export function AdminModal({
       [id]: {
         id,
         name,
-        subtitle: newPkgSubtitle.trim() || '私人专车 · 30年摄影师司导跟拍',
+        subtitle: newPkgSubtitle.trim() || '私人专车 · 10小时自由行与讲解',
         price,
         priceText: `RM ${price}`,
         priceLabel: '包车配套价',
-        durationText: '10小时 · 含跟拍',
+        durationText: '10小时自由包车',
         bannerImg: newPkgImg,
         spots: [
           {
             id: `spot_${Date.now()}`,
             tag: '核心打卡',
             name: `${name} 精选景点`,
-            desc: '私人专车直达，30年摄影师司导 Jack 全程跟拍与讲解。',
+            desc: '私人专车直达，资深司导 Jack 沿途贴心讲解。',
             img: newPkgImg,
             selected: true,
           },
@@ -175,7 +175,7 @@ export function AdminModal({
               id: `spot_${Date.now()}`,
               tag: '新增推荐',
               name,
-              desc: '私人包车精选打卡站，Jack 司导帮您拍美照。',
+              desc: '私人包车精选打卡站，司导贴心接送与讲解。',
               img: pkg.bannerImg,
               selected: true,
             },
@@ -566,7 +566,7 @@ export function AdminModal({
                         type="text"
                         value={newPkgSubtitle}
                         onChange={(e) => setNewPkgSubtitle(e.target.value)}
-                        placeholder="简短说明（如：含茶园与草莓园跟拍）"
+                        placeholder="简短说明（如：含茶园与草莓园自由游）"
                         className="bg-white border border-stone-300 rounded-lg px-3 py-2 text-xs outline-none focus:border-amber-600"
                       />
                     </div>
